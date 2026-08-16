@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>50 Days Revision Series — Geography Quiz 14</title>
+<style>
+  :root{
+    --tb-purple:#6C4DE6;
+    --tb-purple-dark:#4B2FC4;
+    --tb-purple-light:#EFE9FD;
+    --tb-green:#1BA672;
+    --tb-green-bg:#E5F7EF;
+    --tb-red:#E24C4B;
+    --tb-red-bg:#FDECEC;
+    --tb-orange:#F5A623;
+    --tb-grey:#EAEAF0;
+    --tb-grey-dark:#8A8DA6;
+    --ink:#1F2333;
+    --muted:#6E7191;
+    --line:#E4E4EE;
+    --bg:#F4F4FA;
+    --white:#ffffff;
+    --radius:10px;
+    --shadow:0 4px 18px rgba(35,29,80,.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1200px;margin:0 auto;padding:16px 16px 40px;}
+  a{color:inherit;}
+  .hidden{display:none !important;}
+
+  /* ---------- Brand header (used on register/sets screens) ---------- */
+  .brandbar{
+    display:flex;align-items:center;gap:14px;
+    background:var(--white);
+    border-radius:var(--radius);
+    padding:14px 20px;
+    box-shadow:var(--shadow);
+    margin-bottom:18px;
+    border:1px solid var(--line);
+  }
+  .brandbar img.logo{width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 3px var(--tb-purple-light);flex:none;}
+  .brand-text .title{font-size:clamp(16px,2.2vw,20px);font-weight:800;color:var(--ink);line-height:1.25;}
+  .brand-text .title .accent{color:var(--tb-purple);}
+  .brand-text .subtitle{font-size:13px;color:var(--muted);margin-top:2px;font-weight:600;}
+  .userchip{
+    margin-left:auto;background:var(--tb-purple-light);color:var(--tb-purple-dark);
+    padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+  }
+  .userchip .dot{width:8px;height:8px;border-radius:50%;background:var(--tb-purple);}
+
+  /* ---------- Cards ---------- */
+  .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);}
+  .center-stage{display:flex;align-items:center;justify-content:center;min-height:60vh;}
+
+  /* ---------- Registration ---------- */
+  .reg-card{padding:40px 36px;max-width:440px;width:100%;text-align:center;}
+  .reg-card img.logo-lg{width:90px;height:90px;border-radius:50%;box-shadow:0 0 0 4px var(--tb-purple-light);margin-bottom:14px;}
+  .reg-card h1{font-size:19px;margin:6px 0 2px;color:var(--ink);}
+  .reg-card p.lede{color:var(--muted);font-size:13.5px;margin:0 0 20px;}
+  .field-label{text-align:left;font-size:12px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;}
+  input[type=text]{
+    width:100%;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);
+    font-size:15px;outline:none;transition:.15s;background:#fafafe;
+  }
+  input[type=text]:focus{border-color:var(--tb-purple);box-shadow:0 0 0 3px rgba(108,77,230,.15);}
+  .err{color:var(--tb-red);font-size:12px;margin-top:6px;text-align:left;min-height:16px;font-weight:600;}
+
+  .btn{border:none;border-radius:8px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;}
+  .btn-primary{background:var(--tb-purple);color:#fff;width:100%;margin-top:16px;}
+  .btn-primary:hover{background:var(--tb-purple-dark);}
+  .btn-purple-outline{background:#fff;color:var(--tb-purple);border:1.5px solid var(--tb-purple);}
+  .btn-purple-outline:hover{background:var(--tb-purple-light);}
+  .btn-red{background:var(--tb-red);color:#fff;}
+  .btn-red:hover{background:#c93938;}
+  .btn-grey{background:var(--tb-grey);color:var(--ink);}
+  .btn-grey:hover{background:#dedee9;}
+  .btn-sm{padding:8px 14px;font-size:12.5px;border-radius:7px;}
+  .btn:disabled{opacity:.45;cursor:not-allowed;}
+
+  /* ---------- Set selection ---------- */
+  .section-title{font-size:18px;font-weight:800;color:var(--ink);margin:4px 0 4px;}
+  .section-sub{color:var(--muted);font-size:13px;margin-bottom:18px;}
+  .set-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+  .set-card{padding:20px;position:relative;overflow:hidden;transition:.15s;}
+  .set-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(35,29,80,.12);}
+  .set-card .ribbon{
+    position:absolute;top:12px;right:-30px;background:var(--tb-green);color:#fff;
+    font-size:10px;font-weight:800;padding:4px 32px;transform:rotate(35deg);
+  }
+  .set-card .set-num{
+    width:38px;height:38px;border-radius:8px;background:var(--tb-purple-light);
+    color:var(--tb-purple-dark);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:10px;
+  }
+  .set-card h3{margin:0 0 4px;font-size:15.5px;color:var(--ink);}
+  .set-card .set-desc{font-size:12px;color:var(--muted);margin-bottom:12px;}
+  .set-card .meta-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .pill{background:var(--tb-grey);color:var(--ink);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;}
+  .pill.score{background:var(--tb-green-bg);color:var(--tb-green);}
+  .set-card .actions{display:flex;gap:8px;flex-wrap:wrap;}
+
+  /* ================= INSTRUCTIONS SCREEN (Testbook style) ================= */
+  .instr-card{max-width:760px;margin:0 auto;padding:0;overflow:hidden;}
+  .instr-head{background:var(--tb-purple);color:#fff;padding:20px 26px;}
+  .instr-head h2{margin:0 0 4px;font-size:18px;}
+  .instr-head p{margin:0;font-size:12.5px;color:#E4DBFF;}
+  .instr-body{padding:24px 26px;}
+  .instr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+  .instr-stat{background:#fafafe;border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;}
+  .instr-stat b{display:block;font-size:18px;color:var(--tb-purple-dark);}
+  .instr-stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;}
+  .instr-list{font-size:13.5px;line-height:1.9;color:var(--ink);margin:0 0 20px;padding-left:20px;}
+  .instr-list li{margin-bottom:4px;}
+  .instr-legend-row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 20px;font-size:12px;color:var(--muted);}
+  .instr-legend-row span{display:inline-flex;align-items:center;gap:6px;}
+  .agree-row{display:flex;align-items:center;gap:9px;padding:12px 14px;background:#fafafe;border:1px solid var(--line);border-radius:8px;margin-bottom:18px;}
+  .agree-row input{width:17px;height:17px;accent-color:var(--tb-purple);}
+  .agree-row label{font-size:13px;color:var(--ink);cursor:pointer;}
+
+  /* ================= QUIZ SCREEN (Testbook style) ================= */
+  .tb-topbar{
+    display:flex;align-items:center;justify-content:space-between;background:var(--white);
+    border-radius:var(--radius) var(--radius) 0 0;border:1px solid var(--line);border-bottom:none;
+    padding:12px 20px;flex-wrap:wrap;gap:10px;
+  }
+  .tb-topbar .test-name{font-size:14.5px;font-weight:800;color:var(--ink);}
+  .tb-topbar .test-name span{display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:1px;}
+  .timer-pill{
+    background:var(--tb-purple-light);color:var(--tb-purple-dark);font-weight:800;font-size:14px;
+    padding:8px 16px;border-radius:999px;display:flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums;
+  }
+  .timer-pill.low{background:var(--tb-red-bg);color:var(--tb-red);}
+  .timer-pill svg{width:15px;height:15px;}
+
+  .quiz-shell{border:1px solid var(--line);border-top:none;border-radius:0 0 var(--radius) var(--radius);background:var(--white);overflow:hidden;}
+  .quiz-layout{display:grid;grid-template-columns:1fr 300px;}
+  @media (max-width:900px){ .quiz-layout{grid-template-columns:1fr;} }
+
+  .qmain{border-right:1px solid var(--line);}
+  @media (max-width:900px){ .qmain{border-right:none;border-bottom:1px solid var(--line);} }
+
+  .qtop{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap;gap:8px;}
+  .qtop .qnum{font-weight:800;color:var(--ink);font-size:15px;}
+  .examtag{background:var(--tb-purple-light);color:var(--tb-purple-dark);font-size:11px;font-weight:700;padding:5px 11px;border-radius:999px;}
+  .marks-tag{font-size:11px;color:var(--tb-green);font-weight:700;margin-left:8px;}
+
+  .qbody{padding:22px;min-height:280px;}
+  .qtext{font-size:16px;line-height:1.65;font-weight:600;color:var(--ink);margin-bottom:20px;}
+  .opt{
+    display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid var(--line);
+    border-radius:9px;margin-bottom:10px;cursor:pointer;transition:.12s;background:#fdfdff;
+  }
+  .opt:hover{border-color:var(--tb-purple);background:var(--tb-purple-light);}
+  .opt.selected{border-color:var(--tb-purple);background:var(--tb-purple-light);}
+  .opt .optlabel{
+    width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);flex:none;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--ink);background:#fff;
+  }
+  .opt.selected .optlabel{background:var(--tb-purple);color:#fff;border-color:var(--tb-purple);}
+  .opt .opttext{font-size:14px;line-height:1.5;padding-top:2px;}
+
+  .opt.rev-correct{border-color:var(--tb-green);background:var(--tb-green-bg);}
+  .opt.rev-correct .optlabel{background:var(--tb-green);border-color:var(--tb-green);color:#fff;}
+  .opt.rev-wrong{border-color:var(--tb-red);background:var(--tb-red-bg);}
+  .opt.rev-wrong .optlabel{background:var(--tb-red);border-color:var(--tb-red);color:#fff;}
+  .opt.rev-disabled{cursor:default;}
+  .explain-box{margin:0 0 11px;padding:11px 13px;border-radius:8px;font-size:12.5px;line-height:1.55;}
+  .explain-box.exp-correct{background:var(--tb-green-bg);color:#137047;border:1px solid #bfe9d4;}
+  .explain-box.exp-wrong{background:var(--tb-red-bg);color:#a33231;border:1px solid #f3caca;}
+
+  .verdict-banner{margin:0 22px 14px;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:700;}
+  .verdict-correct{background:var(--tb-green-bg);color:var(--tb-green);}
+  .verdict-wrong{background:var(--tb-red-bg);color:var(--tb-red);}
+  .verdict-skipped{background:#FFF6E5;color:#96721A;}
+
+  /* Bottom action bar (Testbook style) */
+  .tb-bottombar{
+    display:flex;align-items:center;justify-content:space-between;padding:12px 22px;
+    border-top:1px solid var(--line);flex-wrap:wrap;gap:10px;background:#fafafe;
+  }
+  .tb-bottombar .grp{display:flex;gap:8px;flex-wrap:wrap;}
+
+  /* Sidebar palette */
+  .side-panel{padding:16px 16px 18px;}
+  .side-panel .user-mini{display:flex;align-items:center;gap:10px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line);}
+  .side-panel .user-mini .avatar{width:34px;height:34px;border-radius:50%;background:var(--tb-purple);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:none;}
+  .side-panel .user-mini .uname{font-size:13px;font-weight:700;color:var(--ink);}
+  .side-panel .user-mini .uset{font-size:11px;color:var(--muted);}
+
+  .legend2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;font-size:11px;color:var(--muted);}
+  .legend2 span{display:inline-flex;align-items:center;gap:6px;}
+  .swatch{width:16px;height:16px;border-radius:4px;flex:none;display:inline-block;position:relative;}
+  .swatch.circle{border-radius:50%;}
+  .sw-notvisited{background:#fff;border:1.5px solid var(--tb-grey-dark);}
+  .sw-notanswered{background:var(--tb-red);}
+  .sw-answered{background:var(--tb-green);}
+  .sw-marked{background:var(--tb-purple);border-radius:50%;}
+  .sw-markedans{background:var(--tb-purple);border-radius:50%;}
+  .sw-markedans::after{content:"";position:absolute;bottom:-1px;right:-1px;width:7px;height:7px;background:var(--tb-green);border-radius:50%;border:1px solid #fff;}
+
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+  .pnum{
+    aspect-ratio:1;border-radius:6px;border:1.5px solid var(--tb-grey-dark);background:#fff;color:var(--ink);
+    font-size:12px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.1s;position:relative;
+  }
+  .pnum.cur{outline:2.5px solid var(--ink);outline-offset:1px;}
+  .pnum.answered{background:var(--tb-green);border-color:var(--tb-green);color:#fff;}
+  .pnum.notanswered{background:var(--tb-red);border-color:var(--tb-red);color:#fff;}
+  .pnum.notvisited{background:#fff;color:var(--ink);}
+  .pnum.marked{background:var(--tb-purple);border-color:var(--tb-purple);color:#fff;border-radius:50%;}
+  .pnum.marked.hasans::after{content:"";position:absolute;bottom:-2px;right:-2px;width:9px;height:9px;background:var(--tb-green);border-radius:50%;border:1.5px solid #fff;}
+  .pnum.rev-correct-p{background:var(--tb-green);border-color:var(--tb-green);color:#fff;}
+  .pnum.rev-wrong-p{background:var(--tb-red);border-color:var(--tb-red);color:#fff;}
+  .pnum.rev-skip-p{background:#fff;color:var(--ink);}
+
+  .summary-box{background:#fafafe;border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--ink);margin-bottom:14px;}
+  .summary-box div{display:flex;justify-content:space-between;padding:3px 0;}
+  .summary-box b{font-weight:800;}
+
+  /* ---------- Submit modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(20,15,50,.55);display:flex;align-items:center;justify-content:center;
+    z-index:999;padding:16px;
+  }
+  .modal-box{background:#fff;border-radius:12px;max-width:420px;width:100%;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.3);}
+  .modal-box h3{margin:0 0 4px;font-size:16.5px;color:var(--ink);}
+  .modal-box p.sub{font-size:12.5px;color:var(--muted);margin:0 0 16px;}
+  .modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+  .modal-stats .mst{background:#fafafe;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .modal-stats .mst b{display:block;font-size:17px;}
+  .modal-stats .mst span{font-size:10.5px;color:var(--muted);text-transform:uppercase;}
+  .modal-actions{display:flex;gap:10px;}
+  .modal-actions .btn{flex:1;}
+
+  /* ---------- Result screen ---------- */
+  .result-hero{
+    background:linear-gradient(120deg,var(--tb-purple),var(--tb-purple-dark));color:#fff;border-radius:var(--radius);
+    padding:30px 26px;text-align:center;box-shadow:var(--shadow);margin-bottom:18px;
+  }
+  .result-hero .score-lbl{font-size:13px;color:#E4DBFF;font-weight:600;}
+  .result-hero .score-num{font-size:42px;font-weight:900;margin-top:2px;}
+  .result-stats{display:flex;justify-content:center;gap:24px;margin-top:16px;flex-wrap:wrap;}
+  .result-stats .stat{text-align:center;}
+  .result-stats .stat b{display:block;font-size:19px;}
+  .result-stats .stat span{font-size:11px;color:#DAD0FF;}
+
+  .filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+  .filter-btn{
+    border:1.5px solid var(--line);background:#fff;color:var(--ink);font-size:12px;font-weight:700;
+    padding:7px 14px;border-radius:999px;cursor:pointer;
+  }
+  .filter-btn.active{background:var(--tb-purple);border-color:var(--tb-purple);color:#fff;}
+
+  .topbar-actions{display:flex;gap:10px;justify-content:flex-end;margin-bottom:14px;flex-wrap:wrap;}
+  footer.note{text-align:center;color:var(--muted);font-size:11.5px;margin-top:24px;}
+
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-thumb{background:#d3d3e2;border-radius:8px;}
+
+  @media (max-width:600px){
+    .qbody{padding:16px;}
+    .reg-card{padding:28px 20px;}
+    .instr-grid{grid-template-columns:1fr 1fr;}
+    .tb-bottombar{flex-direction:column;align-items:stretch;}
+    .tb-bottombar .grp{justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ================= SCREEN 1: REGISTRATION ================= -->
+  <div id="screen-register" class="center-stage">
+    <div class="card reg-card">
+      <img class="logo-lg" id="regLogo" alt="logo"/>
+      <h1>Welcome, Aspirant!</h1>
+      <p class="lede">Enter your name to begin the Geography Quiz 14 revision series.</p>
+      <div class="field-label">Your Name</div>
+      <input type="text" id="nameInput" placeholder="e.g. Rahul Kumar" maxlength="40" autocomplete="off"/>
+      <div class="err" id="nameErr"></div>
+      <button class="btn btn-primary" id="startBtn">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 2: SET SELECTION ================= -->
+  <div id="screen-sets" class="hidden">
+    <div class="brandbar">
+      <img class="logo" id="brandLogo" alt="Pakkirappa's CGL Hub"/>
+      <div class="brand-text">
+        <div class="title">50 Days Revision Series <span class="accent">— Geography Quiz 14</span></div>
+        <div class="subtitle">Transportation</div>
+      </div>
+      <div class="userchip" id="userChip"><span class="dot"></span><span id="userChipName"></span></div>
+    </div>
+    <div class="section-title">Test Series</div>
+    <div class="section-sub">Pick any test to begin. Your progress and score are saved automatically — come back anytime to review.</div>
+    <div class="set-grid" id="setGrid"></div>
+  </div>
+
+  <!-- ================= SCREEN 2b: INSTRUCTIONS ================= -->
+  <div id="screen-instructions" class="hidden center-stage">
+    <div class="card instr-card">
+      <div class="instr-head">
+        <h2 id="instrTitle">Set 1: Atmosphere — Fundamentals</h2>
+        <p>Read the instructions carefully before you begin the test.</p>
+      </div>
+      <div class="instr-body">
+        <div class="instr-grid">
+          <div class="instr-stat"><b id="instrCount">25</b><span>Questions</span></div>
+          <div class="instr-stat"><b id="instrDuration">25:00</b><span>Duration</span></div>
+          <div class="instr-stat"><b>+1 / 0</b><span>Marking</span></div>
+        </div>
+        <ul class="instr-list">
+          <li>The test contains multiple-choice questions with four options each; only one option is correct.</li>
+          <li>A countdown timer is shown at the top right of the screen. The test auto-submits when time expires.</li>
+          <li>Click <b>Save & Next</b> to save your response and move to the next question.</li>
+          <li>Click <b>Mark for Review & Next</b> to flag a question for later revisiting.</li>
+          <li>Click <b>Clear Response</b> to deselect a chosen option for the current question.</li>
+          <li>Use the <b>Question Palette</b> on the right to jump directly to any question.</li>
+          <li>Click <b>Submit Test</b> anytime to end the test early and view your result &amp; analysis.</li>
+        </ul>
+        <div class="instr-legend-row">
+          <span><i class="swatch sw-notvisited"></i> Not Visited</span>
+          <span><i class="swatch sw-notanswered"></i> Not Answered</span>
+          <span><i class="swatch sw-answered"></i> Answered</span>
+          <span><i class="swatch circle sw-marked"></i> Marked for Review</span>
+          <span><i class="swatch circle sw-markedans"></i> Answered &amp; Marked</span>
+        </div>
+        <div class="agree-row">
+          <input type="checkbox" id="agreeCheck"/>
+          <label for="agreeCheck">I have read and understood the instructions. I agree to attempt the test within the given time.</label>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-grey" id="instrBackBtn">← Back to Test Series</button>
+          <button class="btn btn-primary" id="instrStartBtn" style="margin-top:0;" disabled>Start Test →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 3: QUIZ ATTEMPT (Testbook style) ================= -->
+  <div id="screen-quiz" class="hidden">
+    <div class="tb-topbar">
+      <div class="test-name" id="quizTestName">Set 1: Transportation<span>Geography Quiz 14</span></div>
+      <div class="timer-pill" id="timerPill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span id="timerText">25:00</span>
+      </div>
+      <button class="btn btn-red btn-sm" id="submitTopBtn">Submit Test</button>
+    </div>
+    <div class="quiz-shell">
+      <div class="quiz-layout">
+        <div class="qmain">
+          <div class="qtop">
+            <div class="qnum" id="qNumLabel">Question 1 of 25 <span class="marks-tag">+1 / 0</span></div>
+            <div class="examtag" id="qExamTag">SSC CGL</div>
+          </div>
+          <div class="qbody">
+            <div class="qtext" id="qText"></div>
+            <div id="optList"></div>
+          </div>
+          <div class="tb-bottombar">
+            <div class="grp">
+              <button class="btn btn-grey btn-sm" id="prevBtn">← Previous</button>
+              <button class="btn btn-grey btn-sm" id="clearBtn">Clear Response</button>
+            </div>
+            <div class="grp">
+              <button class="btn btn-purple-outline btn-sm" id="markBtn">Mark for Review &amp; Next</button>
+              <button class="btn btn-primary" style="margin-top:0;width:auto;" id="saveNextBtn">Save &amp; Next →</button>
+            </div>
+          </div>
+        </div>
+        <div class="side-panel">
+          <div class="user-mini">
+            <div class="avatar" id="sideAvatar">R</div>
+            <div>
+              <div class="uname" id="sideUname">Candidate</div>
+              <div class="uset" id="sideSetName">Set 1</div>
+            </div>
+          </div>
+          <div class="legend2">
+            <span><i class="swatch sw-answered"></i> Answered</span>
+            <span><i class="swatch sw-notanswered"></i> Not Answered</span>
+            <span><i class="swatch sw-notvisited"></i> Not Visited</span>
+            <span><i class="swatch circle sw-marked"></i> Marked</span>
+          </div>
+          <div class="palette" id="paletteGrid"></div>
+          <div class="summary-box" id="sideSummary"></div>
+          <button class="btn btn-red" id="finalSubmitBtn" style="width:100%;">Submit Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SUBMIT CONFIRM MODAL ================= -->
+  <div id="submitModal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h3>Submit Test?</h3>
+      <p class="sub">Please review your attempt summary before submitting. This action cannot be undone.</p>
+      <div class="modal-stats">
+        <div class="mst"><b style="color:var(--tb-green)" id="modalAnswered">0</b><span>Answered</span></div>
+        <div class="mst"><b style="color:var(--tb-red)" id="modalNotAnswered">0</b><span>Not Answered</span></div>
+        <div class="mst"><b style="color:var(--tb-purple)" id="modalMarked">0</b><span>Marked for Review</span></div>
+        <div class="mst"><b style="color:var(--tb-grey-dark)" id="modalNotVisited">0</b><span>Not Visited</span></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-grey" id="modalCancelBtn">Cancel</button>
+        <button class="btn btn-red" id="modalConfirmBtn">Yes, Submit Test</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCREEN 4: RESULT ================= -->
+  <div id="screen-result" class="hidden">
+    <div class="topbar-actions">
+      <button class="btn btn-purple-outline btn-sm" id="resultBackBtn">← Back to Test Series</button>
+    </div>
+    <div class="result-hero">
+      <div class="score-lbl">YOUR SCORE — <span id="resultSetName"></span></div>
+      <div class="score-num" id="resultScoreNum">0 / 25</div>
+      <div class="result-stats">
+        <div class="stat"><b id="statCorrect">0</b><span>Correct</span></div>
+        <div class="stat"><b id="statWrong">0</b><span>Wrong</span></div>
+        <div class="stat"><b id="statSkipped">0</b><span>Skipped</span></div>
+        <div class="stat"><b id="statAccuracy">0%</b><span>Accuracy</span></div>
+      </div>
+    </div>
+    <div class="section-title">Detailed Analysis</div>
+    <div class="section-sub">Tap any question number, or use the filters, to review your answer with a full explanation for every option.</div>
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="correct">Correct</button>
+      <button class="filter-btn" data-filter="wrong">Wrong</button>
+      <button class="filter-btn" data-filter="skipped">Skipped</button>
+    </div>
+    <div class="quiz-shell" style="border-radius:10px;border:1px solid var(--line);">
+      <div class="quiz-layout">
+        <div class="qmain">
+          <div class="qtop">
+            <div class="qnum" id="rNumLabel">Question 1 of 25</div>
+            <div class="examtag" id="rExamTag">SSC CGL</div>
+          </div>
+          <div class="verdict-banner" id="rVerdictBanner"></div>
+          <div class="qbody">
+            <div class="qtext" id="rQText"></div>
+            <div id="rOptList"></div>
+          </div>
+          <div class="tb-bottombar">
+            <div class="grp"><button class="btn btn-grey btn-sm" id="rPrevBtn">← Previous</button></div>
+            <div class="grp"><button class="btn btn-purple-outline btn-sm" id="rNextBtn">Next →</button></div>
+          </div>
+        </div>
+        <div class="side-panel">
+          <h4 style="margin:2px 0 10px;font-size:12.5px;color:var(--ink);text-transform:uppercase;letter-spacing:.4px;">Question Palette</h4>
+          <div class="legend2">
+            <span><i class="swatch sw-answered"></i> Correct</span>
+            <span><i class="swatch sw-notanswered"></i> Wrong</span>
+            <span><i class="swatch sw-notvisited"></i> Skipped</span>
+          </div>
+          <div class="palette" id="rPaletteGrid"></div>
+          <div class="summary-box" id="rSideSummary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="note">Pakkirappa's CGL Hub — Education For All · SSC CGL / CHSL / MTS Geography Revision</footer>
+</div>
+
+<script>
+// ============================================================
+// QUESTION BANK — Geography Quiz 14: Transportation
+// Sourced from Borderland SSC Warbook (Ch. XIX — Transport) & Pinnacle SSC Geography compilation
+// ============================================================
+const QUESTIONS = [
+
+
+// ---------------- SET 1 ----------------
+{id:1, set:1, tag:"Ssc Phase 13, 02/08/2025 (AR)", q:"Assertion (A): The IWT Terminal at Jogighopa is strategically important for India's trilateral trade with Bhutan and Bangladesh. Reason (R): Jogighopa Terminal is located near the borders of Bangladesh and Bhutan and is a declared Port of Call under the PIWT&T agreement between India and Bangladesh.", options:["Both A and R are true, and R is the correct explanation of A","Both A and R are true, but R is not the correct explanation of A","A is true, but R is false","A is false, but R is true"], correct:0, exp:[
+"Correct — Jogighopa (Assam), on National Waterway 2, is India's first Multi-Modal Logistics Park; its location near the Bhutan-Bangladesh borders and Port-of-Call status under PIWT&T directly explain its strategic importance.",
+"Incorrect — R does correctly explain A, it is not an unrelated true statement.",
+"Incorrect — R is also true, not false; Jogighopa is indeed a declared Port of Call.",
+"Incorrect — A is true, not false; Jogighopa is genuinely strategically important for trilateral trade."
+]},
+{id:2, set:1, tag:"Ssc Phase 13, 29/08/2025", q:"Which Indian government body was appointed as the overall Project Development Consultant (PDC) for the Port and Inland Water Transport (IWT) component of the Kaladan project?", options:["India Ports Global Private Limited (IPGPL)","Jawaharlal Nehru Port Trust","Inland Waterways Authority of India (IWAI)","Ministry of Ports, Shipping and Waterways"], correct:2, exp:[
+"Incorrect — IPGPL operates the Chabahar terminal, not the Kaladan project's PDC role.",
+"Incorrect — JNPT is India's largest container port; it was not the PDC for Kaladan.",
+"Correct — IWAI was appointed as the Project Development Consultant for the port and IWT components of the Kaladan Multi-Modal Transit Transport Project, connecting Kolkata to Sittwe (Myanmar) and onward to Mizoram.",
+"Incorrect — The Ministry is the parent department but was not itself the appointed PDC."
+]},
+{id:3, set:1, tag:"Ssc Phase 13, 28/07/2025", q:"How does the Chabahar Port strategically assist India?", options:["It provides direct access to Central Asia, bypassing Pakistan","It serves as India's largest domestic port","It is a major hub for India's oil imports","It connects India to the Mediterranean Sea"], correct:0, exp:[
+"Correct — Chabahar (Iran) gives India a trade route to Afghanistan and Central Asia that completely bypasses Pakistan, which denies India land transit access.",
+"Incorrect — Chabahar is a foreign (Iranian) port, not a domestic Indian port.",
+"Incorrect — Chabahar's core strategic role is connectivity to Central Asia/Afghanistan, not oil imports.",
+"Incorrect — Chabahar connects India toward Central Asia via the INSTC route, not the Mediterranean."
+]},
+{id:4, set:1, tag:"Ssc Phase 13, 29/07/2025 (AR)", q:"Assertion (A): IMEC is expected to reduce logistics costs and transport time significantly across the India-Middle East-Europe trade corridor. Reason (R): IMEC integrates railways, roadways, energy pipelines, and undersea cables to boost connectivity.", options:["Both A and R are true, and R is the correct explanation of A","Both A and R are true, but R is not the correct explanation of A","A is true, but R is false","A is false, but R is true"], correct:0, exp:[
+"Correct — IMEC, announced at the G20 summit, creates a seamless multi-modal (ship-to-rail) network linking India, UAE, Saudi Arabia, Jordan, Israel and Europe; this integration of railways, roads, pipelines and cables is exactly what drives the cost/time reduction in A.",
+"Incorrect — R is in fact the correct explanation of A, not an unrelated true fact.",
+"Incorrect — R is also true; IMEC does integrate these elements.",
+"Incorrect — A is true; IMEC genuinely aims to cut logistics costs and transit time."
+]},
+{id:5, set:1, tag:"Ssc Phase 13, 29/07/2025", q:"Assertion (A): IMEC is expected to reduce logistics costs by up to 30% and transportation time by 40%. Reason (R): IMEC integrates digital infrastructure, clean energy pipelines, and rail-road connectivity to optimize trade routes.", options:["Both A and R are true, and R is the correct explanation of A","Both A and R are true, but R is not the correct explanation of A","A is true, but R is false","A is false, but R is true"], correct:0, exp:[
+"Correct — Both the specific projections (30% cost cut, 40% time saving) and the underlying integration of digital, energy and rail-road infrastructure are part of IMEC's strategic goals; R explains how A's targets are achieved.",
+"Incorrect — R does correctly explain A here.",
+"Incorrect — R is also true, not false.",
+"Incorrect — A is true; these are genuine cited projections for IMEC versus the Suez Canal route."
+]},
+{id:6, set:1, tag:"Ssc Phase 13, 29/07/2025", q:"Which Indian port handles the highest volume of crude oil imports?", options:["Kandla Port","Mumbai Port","Paradip Port","Visakhapatnam Port"], correct:2, exp:[
+"Incorrect — Kandla (Deendayal) handles massive overall cargo but not the highest crude oil import volume.",
+"Incorrect — Mumbai Port is India's largest natural port but not the top crude-oil-import handler.",
+"Correct — Paradip Port (Odisha) has emerged as a major hub for crude oil imports serving IOCL refineries, aided by capacity expansion and Single Point Mooring (SPM) systems.",
+"Incorrect — Visakhapatnam handles crude oil among other cargo but is not the top-ranked import port."
+]},
+{id:7, set:1, tag:"Ssc Phase 13, 30/07/2025", q:"The 'Hambantota Port' in Sri Lanka was developed with financial assistance received from which country?", options:["India","China","USA","Japan"], correct:1, exp:[
+"Incorrect — India was not the financier of Hambantota Port's development.",
+"Correct — Hambantota Port was built with significant Chinese loans and construction assistance; when Sri Lanka struggled to repay, it was leased to a Chinese state enterprise for 99 years in 2017, feeding into the 'String of Pearls' concern.",
+"Incorrect — The USA did not fund the Hambantota Port project.",
+"Incorrect — Japan was not the financing country for Hambantota Port."
+]},
+{id:8, set:1, tag:"Ssc Phase 13, 31/07/2025", q:"Chabahar Port is located in which country?", options:["Pakistan","Iran","UAE","India"], correct:1, exp:[
+"Incorrect — Chabahar is not in Pakistan; in fact it lets India bypass Pakistan.",
+"Correct — Chabahar Port is located in southeastern Iran on the Gulf of Oman, the only Iranian port with direct ocean access.",
+"Incorrect — Chabahar is not in the UAE.",
+"Incorrect — Chabahar is a foreign port in Iran, not in India, though India has invested in its Shahid Beheshti terminal."
+]},
+{id:9, set:1, tag:"Ssc Phase 13, 24/07/2025", q:"Which Indian state benefits the most from trade through Chabahar Port?", options:["Gujarat","Maharashtra","Kerala","Tamil Nadu"], correct:0, exp:[
+"Correct — Gujarat benefits most due to geographical proximity; its Kandla (Deendayal) and Mundra ports are the closest major Indian ports to Chabahar (~550 nautical miles), lowering freight cost and transit time.",
+"Incorrect — Maharashtra is farther from Chabahar than Gujarat's western ports.",
+"Incorrect — Kerala is not geographically well-placed relative to Chabahar.",
+"Incorrect — Tamil Nadu is on the east coast, far from the Chabahar trade route."
+]},
+{id:10, set:1, tag:"Ssc Phase 13, 25/07/2025", q:"Which is the largest container port in India?", options:["Jawaharlal Nehru Port (JNPT), Maharashtra","Chennai Port, Tamil Nadu","Mundra Port, Gujarat","Kolkata Port, West Bengal"], correct:0, exp:[
+"Correct — JNPT (Nhava Sheva), Navi Mumbai, is the largest major (government) container port, handling over 50% of major-port container cargo.",
+"Incorrect — Chennai Port is a significant container handler but not India's largest.",
+"Incorrect — Mundra is the largest private port, but JNPT is the standard answer for largest major/public container port.",
+"Incorrect — Kolkata Port is India's oldest operating port, not the largest container port."
+]},
+{id:11, set:1, tag:"Ssc Steno 2025, 06/08/2025, Shift-1", q:"Name the Indian port that is the largest exporter of iron ore.", options:["Paradip Port","Chennai Port","Visakhapatnam Port","Marmagao Port"], correct:3, exp:[
+"Incorrect — Paradip now handles higher total volumes including coal/oil, but is not the traditional top iron-ore exporter.",
+"Incorrect — Chennai Port is not known as an iron-ore export leader.",
+"Incorrect — Visakhapatnam handles ore among other cargo but is not the classic top iron-ore exporting port.",
+"Correct — Marmagao Port (Goa) is traditionally the leading iron-ore exporting port, close to the Goa/Karnataka mines with Zuari estuary barge transport."
+]},
+{id:12, set:1, tag:"Ssc Steno 2025, 08/08/2025, Shift-1", q:"Name the port that is privately owned by the Adani Group.", options:["Visakhapatnam Port, Andhra Pradesh","Chennai Port, Tamil Nadu","Kandla Port, Gujarat","Mundra Port, Gujarat"], correct:3, exp:[
+"Incorrect — Visakhapatnam is a government-administered Major Port.",
+"Incorrect — Chennai Port is a government-administered Major Port.",
+"Incorrect — Kandla (Deendayal) Port is a government-administered Major Port.",
+"Correct — Mundra Port, Gujarat, is India's largest private commercial port, owned by Adani Ports and SEZ Ltd (APSEZ)."
+]},
+{id:13, set:1, tag:"Ssc Steno 2025, 08/08/2025, Shift-2", q:"Match the columns — Port/Corridor: A. Chabahar Port, B. IMEC, C. Sittwe Port; Strategic Importance: 1. Links India with Europe via Middle East, 2. New age of transportation between India to Southeast Asia, 3. Access to Central Asia bypassing Pakistan.", options:["A-3, B-1, C-2","A-2, B-3, C-1","A-3, B-2, C-1","A-1, B-2, C-3"], correct:0, exp:[
+"Correct — Chabahar gives access to Central Asia bypassing Pakistan (3); IMEC links India to Europe via the Middle East (1); Sittwe is the gateway to Myanmar/Southeast Asia via the Kaladan project (2).",
+"Incorrect — This pairing swaps IMEC and Sittwe's correct roles.",
+"Incorrect — This pairing assigns IMEC to Sittwe's role and vice versa incorrectly.",
+"Incorrect — Chabahar's role is bypassing Pakistan (3), not linking to Europe (1)."
+]},
+{id:14, set:1, tag:"SSC CGL Tier 1, 18 Sep 2025, Shift-3", q:"The 'Kaladan Multimodal Transit Transport Project' links India with which country?", options:["China","Myanmar","Bangladesh","Nepal"], correct:1, exp:[
+"Incorrect — The Kaladan Project does not link India with China.",
+"Correct — The Kaladan Project connects India (Mizoram) with Myanmar, offering the North-East an alternative outlet bypassing the narrow 'Chicken's Neck' corridor via Kolkata-Sittwe sea and river/road transport.",
+"Incorrect — Bangladesh is linked to India via routes like Petrapole-Benapole, not Kaladan.",
+"Incorrect — Nepal is linked via routes like Birgunj-Raxaul, not Kaladan."
+]},
+{id:15, set:1, tag:"SSC CGL Tier 1, 20 Sept 2025, Shift-1", q:"Which of the following is a major port city situated on the East Coast of India and is an enclave of Puducherry?", options:["Mahe","Yanam","Karaikal","Chandernagore"], correct:2, exp:[
+"Incorrect — Mahe is on the West Coast (Kerala), not the East Coast.",
+"Incorrect — Yanam is on the East Coast but is not developing port status like Karaikal.",
+"Correct — Karaikal, a district of Puducherry on the East Coast (within Tamil Nadu), has a significant port (Karaikal Port).",
+"Incorrect — Chandernagore is an inland location in West Bengal, not a Puducherry enclave port."
+]},
+{id:16, set:1, tag:"SSC CGL Tier 1, 20 Sept 2024, Shift-3", q:"Which of these important trade routes passes through the Indian Ocean?", options:["Panama Canal","Suez Canal","Bering Strait","Drake Passage"], correct:1, exp:[
+"Incorrect — The Panama Canal links the Atlantic and Pacific, unrelated to the Indian Ocean.",
+"Correct — The Suez Canal route connects the Mediterranean Sea to the Red Sea, which opens into the Indian Ocean, making it one of the world's busiest maritime trade routes linking Europe and Asia.",
+"Incorrect — The Bering Strait links the Arctic and Pacific Oceans.",
+"Incorrect — Drake Passage separates South America and Antarctica."
+]},
+{id:17, set:1, tag:"SSC CGL Tier 1, 21 Sep 2025, Shift-1", q:"Which of the following is a main goal of the Chabahar port project?", options:["To increase military presence in the region","To mine for undersea minerals","To increase tourism in Iran","To boost regional trade"], correct:3, exp:[
+"Incorrect — Military presence is not the stated goal of the Chabahar project.",
+"Incorrect — Undersea mineral mining is not the objective of Chabahar port.",
+"Incorrect — Tourism promotion is not the primary goal of the Chabahar project.",
+"Correct — Chabahar's primary objective is to boost regional trade and connectivity between India, Iran, Afghanistan and Central Asia."
+]},
+{id:18, set:1, tag:"SSC CGL Tier 1, 21 Sep 2025, Shift-2", q:"What is the primary strategic significance of Chabahar Port?", options:["Access to the Persian Gulf","Connecting India to the Mediterranean Sea","Bypassing Pakistan for trade with Afghanistan","Enhancing Iran's naval capabilities"], correct:2, exp:[
+"Incorrect — Access to the Persian Gulf is not the most cited strategic significance for India.",
+"Incorrect — Chabahar does not connect India to the Mediterranean Sea.",
+"Correct — The most cited significance is bypassing Pakistan to access Afghanistan and Central Asia, since Pakistan denies India land transit rights.",
+"Incorrect — Enhancing Iran's own naval capability is not India's strategic interest in Chabahar."
+]},
+{id:19, set:1, tag:"SSC CGL Tier 1, 23 Sep 2025, Shift-2", q:"Which country helped develop Chabahar Port?", options:["China","India","Russia","United States"], correct:1, exp:[
+"Incorrect — China is not the country that helped develop Chabahar for India's use.",
+"Correct — India played a key role in developing the Chabahar Port (Shahid Beheshti terminal); India Ports Global Limited (IPGL) operates the terminal, marking India's first overseas port operation.",
+"Incorrect — Russia was not involved in developing Chabahar's terminal for India.",
+"Incorrect — The United States was not the developer of Chabahar Port."
+]},
+{id:20, set:1, tag:"SSC CGL Tier 1, 26 Sep 2025, Shift-2", q:"Which of the following statements is/are INCORRECT regarding the density of roads in India? A. Level of economic development and terrain are the determinants of road density. B. Road density is higher in the North-Eastern states than in the Southern states of India. C. Road density of Kerala is higher than the average national road density.", options:["A only","B only","C only","Both B and C"], correct:1, exp:[
+"Incorrect — Statement A is correct: economic development and terrain do determine road density.",
+"Correct — Statement B is incorrect: road density is typically lower in the North-Eastern states due to difficult mountainous terrain, while Statement C is correct since Kerala has one of the highest road densities.",
+"Incorrect — Statement C is actually correct, not incorrect.",
+"Incorrect — Only B is incorrect; C is a correct statement."
+]},
+{id:21, set:1, tag:"SSC CGL Tier 1, 14 Oct 2025", q:"India and which country jointly operate the Integrated Check Post at Birgunj-Raxaul border?", options:["Bhutan","Nepal","Myanmar","Sri Lanka"], correct:1, exp:[
+"Incorrect — Bhutan is not linked to the Birgunj-Raxaul border.",
+"Correct — The Birgunj-Raxaul border is the main trade gateway between India and Nepal; the Integrated Check Post (ICP) there facilitates cargo and passenger movement, handling a large share of Nepal's third-country trade.",
+"Incorrect — Myanmar is linked to routes like the Kaladan project, not Birgunj-Raxaul.",
+"Incorrect — Sri Lanka has no land border with India and is unrelated to Birgunj-Raxaul."
+]},
+{id:22, set:1, tag:"SSC CHSL, 22 Nov 2025, Shift-2", q:"About ______ per cent of the total road length in India are categorised as rural roads.", options:["80","60","40","20"], correct:0, exp:[
+"Correct — According to MoRTH, Rural Roads (including PMGSY roads) constitute the vast majority of India's road network, with 80% being the closest accepted exam figure.",
+"Incorrect — 60% understates the dominant share of rural roads.",
+"Incorrect — 40% is far below the actual share of rural roads in India's network.",
+"Incorrect — 20% is far too low; rural roads make up the large majority, not a fifth."
+]},
+{id:23, set:1, tag:"SSC CHSL, 30 Nov 2025, Shift-3", q:"The national highways in India constitute only about ______ of the total road length.", options:["2%","8%","12%","18%"], correct:0, exp:[
+"Correct — National Highways constitute only about 2% to 2.5% of total road length, yet carry over 40% of road traffic as the arterial network.",
+"Incorrect — 8% overstates the National Highway share of total road length.",
+"Incorrect — 12% is well above the actual ~2% share.",
+"Incorrect — 18% greatly overstates the National Highway share of total road length."
+]},
+{id:24, set:1, tag:"SSC CHSL, 12 Nov 2025, Shift-3", q:"Which of the following port is confronted with the problem of silt accumulation in the Hugli River?", options:["Kolkata port","Kochchi port","Tuticorin port","Chennai port"], correct:0, exp:[
+"Correct — Kolkata Port (Syama Prasad Mookerjee Port) is a riverine, tidal port on the Hugli (Hooghly) River that faces severe siltation, requiring constant dredging.",
+"Incorrect — Kochi port is on the Arabian Sea coast, not the Hugli River.",
+"Incorrect — Tuticorin is on the Tamil Nadu coast, unrelated to the Hugli River.",
+"Incorrect — Chennai port faces shallow-water/dredging issues of its own but is not on the Hugli River."
+]},
+{id:25, set:1, tag:"SSC CHSL, 13 Nov 2025, Shift-2", q:"Which of the following does NOT constitute the hinterland of Marmagao port?", options:["Karnataka","Goa","Southern Maharashtra","Himachal Pradesh"], correct:3, exp:[
+"Incorrect — Karnataka is part of Marmagao Port's hinterland.",
+"Incorrect — Goa is part of Marmagao Port's hinterland, being its home state.",
+"Incorrect — Southern Maharashtra is served by Marmagao Port.",
+"Correct — Himachal Pradesh is a landlocked North Indian state far from Goa; its trade flows through northern ports like Kandla, not Marmagao."
+]},
+
+// ---------------- SET 2 ----------------
+{id:26, set:2, tag:"SSC CHSL, 14 Nov 2025, Shift-2", q:"Which of the following statement is INCORRECT regarding Deendayal Port?", options:["It is also known as Kandla port.","It is regarded as a Major port.","It is in eastern part of India.","It is specially designed to receive large quantities of Petroleum products."], correct:2, exp:[
+"Incorrect — This statement is correct; Deendayal Port was formerly known as Kandla Port.",
+"Incorrect — This statement is correct; Deendayal is indeed a Major Port.",
+"Correct — This is the incorrect statement: Deendayal Port is located in the Gulf of Kutch, Gujarat, which is in the Western part of India, not the Eastern part.",
+"Incorrect — This statement is correct; it is a major tidal port handling massive petroleum and dry cargo volumes."
+]},
+{id:27, set:2, tag:"SSC CHSL, 15 Nov 2025, Shift-3", q:"The Petrapole-Benapole rail link connects which of the following country?", options:["India-Bhutan","India-Nepal","India-Bangladesh","India-Myanmar"], correct:2, exp:[
+"Incorrect — Petrapole-Benapole is not related to Bhutan.",
+"Incorrect — Petrapole-Benapole is not related to Nepal.",
+"Correct — The Petrapole-Benapole border is the busiest land port between India and Bangladesh, connecting Petrapole (West Bengal) to Benapole (Bangladesh) for passengers and goods trains.",
+"Incorrect — Petrapole-Benapole is not related to Myanmar."
+]},
+{id:28, set:2, tag:"SSC CHSL, 17 Nov 2025, Shift-1", q:"The 'Kaladan Multi Modal Transit Transport' Project is associated with which of the following country?", options:["India and Nepal","India and Pakistan","India and Bangladesh","India and Myanmar"], correct:3, exp:[
+"Incorrect — The Kaladan project is not associated with Nepal.",
+"Incorrect — The Kaladan project is not associated with Pakistan.",
+"Incorrect — The Kaladan project is not associated with Bangladesh.",
+"Correct — The Kaladan project is a strategic connectivity project between India and Myanmar (via Sittwe Port)."
+]},
+{id:29, set:2, tag:"SSC CHSL, 20 Nov 2025, Shift-2", q:"In the context of National Highways and Development Projects, what is the total length (in km) of East-West Corridor?", options:["2900","3640","4700","5860"], correct:1, exp:[
+"Incorrect — 2900 km understates the East-West Corridor's length.",
+"Correct — The East-West Corridor connects Silchar (Assam) to Porbandar (Gujarat); 3,640 km is the standard exam figure often cited for this corridor.",
+"Incorrect — 4700 km overstates the East-West Corridor's length.",
+"Incorrect — 5860 km is closer to the Golden Quadrilateral's length, not the East-West Corridor."
+]},
+{id:30, set:2, tag:"SSC CHSL, 22 Nov 2025, Shift-3", q:"What is the total length (in km) of navigable waterways in India?", options:["6500","8000","11200","14500"], correct:3, exp:[
+"Incorrect — 6500 km understates India's total navigable waterway length.",
+"Incorrect — 8000 km is still well below the actual figure.",
+"Incorrect — 11200 km is below the correct total.",
+"Correct — India has approximately 14,500 km of navigable waterways (rivers, canals, backwaters, creeks), managed by IWAI to promote eco-friendly transport."
+]},
+{id:31, set:2, tag:"SSC CHSL, 24 Nov 2025, Shift-2", q:"About ______ per cent of the total road length in India are categorised as rural roads.", options:["80","60","40","20"], correct:0, exp:[
+"Correct — Approximately 80% of India's road network is categorised as Rural Roads, including PMGSY roads.",
+"Incorrect — 60% understates the dominant share of rural roads.",
+"Incorrect — 40% is far below the actual share.",
+"Incorrect — 20% is far too low for the rural roads share."
+]},
+{id:32, set:2, tag:"SSC CHSL, 27 Nov 2025, Shift-2", q:"Which of the following port is situated at the entrance of the Zuari estuary?", options:["Mumbai port","Marmagao port","Haldia port","Paradip port"], correct:1, exp:[
+"Incorrect — Mumbai Port is India's largest natural harbour but is not on the Zuari estuary.",
+"Correct — Marmagao Port is a natural harbor located at the entrance of the Zuari estuary in Goa, giving it deep water and protection.",
+"Incorrect — Haldia port is on the Hooghly River, not the Zuari estuary.",
+"Incorrect — Paradip port is at the Mahanadi delta, not the Zuari estuary."
+]},
+{id:33, set:2, tag:"SSC CHSL, 30 Nov 2025, Shift-2", q:"The Konkan Railway connects ______.", options:["Roha and Mangalore","Kolkata and Cuttack","Cuttack and Hyderabad","Kochi and Chennai"], correct:0, exp:[
+"Correct — The Konkan Railway connects Roha (Maharashtra, south of Mumbai) to Mangalore (Karnataka) over a 760 km route through rugged coastal terrain including Goa.",
+"Incorrect — Kolkata and Cuttack are not connected by the Konkan Railway.",
+"Incorrect — Cuttack and Hyderabad are not connected by the Konkan Railway.",
+"Incorrect — Kochi and Chennai are not connected by the Konkan Railway."
+]},
+{id:34, set:2, tag:"SSC MTS, 06 Feb 2026, Shift-3", q:"Which of the following port is located 105 Km downstream from Kolkata and has been constructed to reduce the congestion at Kolkata port?", options:["Paradip","Kandla","Jawaharlal Nehru","Haldia"], correct:3, exp:[
+"Incorrect — Paradip is in Odisha, not downstream from Kolkata on the same river system for this purpose.",
+"Incorrect — Kandla (Deendayal Port) is in Gujarat, unrelated to Kolkata's congestion.",
+"Incorrect — Jawaharlal Nehru Port is in Navi Mumbai, unrelated to Kolkata.",
+"Correct — Haldia Port (Kolkata-Haldia Dock Complex) is located about 105 km downstream from Kolkata on the Hooghly River, built specifically to decongest the main Kolkata port."
+]},
+{id:35, set:2, tag:"SSC MTS, 09 Feb 2026, Shift-3", q:"What is the total length (in km) of National Waterway-2?", options:["451","891","1108","1720"], correct:1, exp:[
+"Incorrect — 451 km is not the length of NW-2.",
+"Correct — National Waterway 2 (NW-2) spans 891 km entirely across the Brahmaputra River, connecting Dhubri to Sadiya within Assam.",
+"Incorrect — 1108 km is not the length of NW-2.",
+"Incorrect — 1720 km is not the length of NW-2; NW-1 (Ganga-Bhagirathi-Hooghly) is around 1620 km, India's longest."
+]},
+{id:36, set:2, tag:"SSC MTS, 11 Feb 2026, Shift-1", q:"The _____ port in Andhra Pradesh is a land locked harbour.", options:["Paradip","Tuticorin","Kandla","Visakhapatnam"], correct:3, exp:[
+"Incorrect — Paradip is an open-sea port in Odisha, not a landlocked harbour in AP.",
+"Incorrect — Tuticorin is in Tamil Nadu, not Andhra Pradesh.",
+"Incorrect — Kandla is a major tidal port in Gujarat, not AP.",
+"Correct — Visakhapatnam Port, on the Andhra Pradesh coast, is India's deepest and only heavily protected, land-locked natural harbour, shielded by the rock barrier known as Dolphin's Nose."
+]},
+{id:37, set:2, tag:"SSC MTS, 13 Feb 2026, Shift-1", q:"Which of the following port is known as the 'Queen of the Arabian Sea'?", options:["Cochin port","Paradip port","Tuticorin port","Kandla port"], correct:0, exp:[
+"Correct — Cochin Port (Kochi), on Kerala's southwestern coast, is celebrated as the 'Queen of the Arabian Sea', historically a crucial global spice-trading hub.",
+"Incorrect — Paradip is on the eastern coast in Odisha, not called the Queen of the Arabian Sea.",
+"Incorrect — Tuticorin is in Tamil Nadu on the southeast coast, not the Arabian Sea title-holder.",
+"Incorrect — Kandla is a major tidal port in Gujarat, not the 'Queen of the Arabian Sea'."
+]},
+{id:38, set:2, tag:"SSC MTS, 17 Feb 2026, Shift-2", q:"Paradip Port is situated in the ______ delta.", options:["Kaveri","Luni","Ganga","Mahanadi"], correct:3, exp:[
+"Incorrect — The Kaveri delta is far south in Tamil Nadu, unrelated to Paradip.",
+"Incorrect — The Luni is a seasonal river in Rajasthan's arid deserts, unrelated to Paradip.",
+"Incorrect — The Ganga delta spans West Bengal and Bangladesh, hosting Kolkata Port, not Paradip.",
+"Correct — Paradip Port is situated at the confluence of the Mahanadi River and the Bay of Bengal in Odisha's Jagatsinghpur district."
+]},
+{id:39, set:2, tag:"SSC MTS, 17 Feb 2026, Shift-3", q:"Which of the following statement is INCORRECT regarding Chennai port?", options:["It is one of the oldest ports on the western coast of India.","It is an artificial harbour.","Puducherry is its hinterland.","It is not much suitable for large ships because of the shallow water near coast."], correct:0, exp:[
+"Correct — This statement is incorrect: Chennai Port is located on the Eastern coast of India (Bay of Bengal), not the western coast.",
+"Incorrect — This statement is correct; Chennai is indeed an artificial harbour.",
+"Incorrect — This statement is correct; Puducherry and Tamil Nadu are part of its hinterland.",
+"Incorrect — This statement is correct; shallow coastal waters do make it less suited for ultra-large vessels."
+]},
+{id:40, set:2, tag:"SSC MTS, 18 Feb 2026, Shift-3", q:"The Tuticorin port is in ______.", options:["Tamil Nadu","Kerala","Goa","Maharashtra"], correct:0, exp:[
+"Correct — Tuticorin Port, renamed the V.O. Chidambaranar Port Authority, is located on the southeastern coast of Tamil Nadu, one of India's 12 major ports.",
+"Incorrect — Kerala hosts the Cochin Port, not Tuticorin.",
+"Incorrect — Goa is famous for the Mormugao (Marmagao) Port, not Tuticorin.",
+"Incorrect — Maharashtra hosts JNPT and Mumbai Port, not Tuticorin."
+]},
+{id:41, set:2, tag:"SSC MTS, 19 Feb 2026, Shift-2", q:"About 80% of the total road length in India are categorised as ______.", options:["National Highways","State Highways","District Roads","Rural Roads"], correct:3, exp:[
+"Incorrect — National Highways form only about 2% of total road length, not 80%.",
+"Incorrect — State Highways are also a small fraction, not 80%.",
+"Incorrect — District Roads are a moderate share, not the 80% figure.",
+"Correct — About 80% of India's total road length is categorised as Rural Roads, including those built under PMGSY, essential for connecting villages to markets."
+]},
+{id:42, set:2, tag:"SSC MTS, 19 Feb 2026, Shift-3", q:"Which of the following statement is correct regarding Jawaharlal Nehru port? 1. It is developed at Nhava Sheva. 2. It is the largest container port in India.", options:["Only I","Only II","Neither I nor II","Both I and II"], correct:3, exp:[
+"Incorrect — Statement II is also correct, not just I.",
+"Incorrect — Statement I is also correct, not just II.",
+"Incorrect — Both statements are in fact correct.",
+"Correct — Both statements are correct: JNPA was developed at Nhava Sheva to decongest Mumbai Port, and since 1989 it has grown into India's largest major container-handling port."
+]},
+{id:43, set:2, tag:"SSC MTS, 20 Feb 2026, Shift-1", q:"Among the following major port in India, which is located southernmost?", options:["New Mangalore Port","Mormugao Port","Deendayal Port","Tuticorin Port"], correct:3, exp:[
+"Incorrect — New Mangalore Port, on Karnataka's coast, is north of Tuticorin.",
+"Incorrect — Mormugao Port in Goa is well north of Tuticorin.",
+"Incorrect — Deendayal (Kandla) Port is in Gujarat, in the far west/north, not the south.",
+"Correct — Tuticorin Port (V.O. Chidambaranar Port Authority) is situated the furthest south, near the tip of the Indian peninsula in Tamil Nadu."
+]},
+{id:44, set:2, tag:"DP HCM 2025, 09 Jan 2026, Shift-1", q:"Which among the following is the top seafood exporting port of India in terms of dollar value?", options:["Tuticorin","Kochi","Mangalore","Visakhapatnam"], correct:3, exp:[
+"Incorrect — Tuticorin has a significant fishing industry but ranks lower than Visakhapatnam in dollar value.",
+"Incorrect — Kochi's fishing industry is significant but not the top by dollar value.",
+"Incorrect — Mangalore ranks lower than Visakhapatnam in seafood export value.",
+"Correct — According to MPEDA statistics, Visakhapatnam consistently ranks as the top seafood exporting port by US dollar realisation, largely due to frozen shrimp exports."
+]},
+{id:45, set:2, tag:"SSC CPO, 10 Dec 2025, Shift-1", q:"Which four metro cities are connected by India's Golden Quadrilateral highway network?", options:["Bengaluru, Chennai, Hyderabad, Kochi","Delhi, Mumbai, Chennai, Kolkata","Ahmedabad, Pune, Nagpur, Bhubaneswar","Lucknow, Patna, Guwahati, Jaipur"], correct:1, exp:[
+"Incorrect — This set of cities is not the Golden Quadrilateral's connected metros.",
+"Correct — Launched in 2001, the Golden Quadrilateral connects India's four top metros: Delhi (North), Kolkata (East), Mumbai (West) and Chennai (South).",
+"Incorrect — These cities are not the Golden Quadrilateral's connected metros.",
+"Incorrect — These cities are not the Golden Quadrilateral's connected metros."
+]},
+{id:46, set:2, tag:"SSC CPO, 12 Dec 2025, Shift-1", q:"Which of the given statements is/are CORRECT regarding Kochi port? 1. It is an artificial harbour situated on Willingdon Island. 2. It is located on the Arabian Sea, very close to the Suez-Colombo route. 3. It is located on islands within the Vembanad Lake, where it opens to the Arabian Sea.", options:["1 and 3 only","2 and 3 only","1 and 2 only","1, 2, and 3"], correct:3, exp:[
+"Incorrect — Statement 2 is also correct, so this excludes a valid statement.",
+"Incorrect — Statement 1 is also correct, so this excludes a valid statement.",
+"Incorrect — Statement 3 is also correct, so this excludes a valid statement.",
+"Correct — All three statements are correct: Kochi Port sits on the man-made Willingdon Island within the Vembanad Lake estuary, which opens to the Arabian Sea near the busy Suez-Colombo shipping route."
+]},
+{id:47, set:2, tag:"Delhi Police Constable, 27 Dec 2025, Shift-1", q:"Kandla Port (now Deendayal Port), a major seaport, is located in which state?", options:["Maharashtra","Gujarat","Karnataka","Kerala"], correct:1, exp:[
+"Incorrect — Kandla Port is not in Maharashtra.",
+"Correct — Kandla Port, renamed Deendayal Port in 2017, is located on the Gulf of Kutch in Gujarat, built in the 1950s to compensate for the loss of Karachi port after Partition.",
+"Incorrect — Kandla Port is not in Karnataka.",
+"Incorrect — Kandla Port is not in Kerala."
+]},
+{id:48, set:2, tag:"Delhi Police Constable, 29 Dec 2025, Shift-1", q:"'National Waterway 1' (NW-1), India's longest waterway, is on which river?", options:["Brahmaputra","Godavari","Narmada","Ganga"], correct:3, exp:[
+"Incorrect — The Brahmaputra hosts NW-2, not NW-1.",
+"Incorrect — The Godavari is linked with NW-4, not NW-1.",
+"Incorrect — The Narmada is linked with NW-73, not NW-1.",
+"Correct — National Waterway 1 (NW-1), India's longest and most utilised inland waterway (~1,620 km), runs along the Ganga-Bhagirathi-Hooghly river system from Prayagraj to Haldia."
+]},
+{id:49, set:2, tag:"Delhi Police Constable, 29 Dec 2025, Shift-2", q:"Which of the following road categories primarily serves the purpose of linking a state capital with district headquarters?", options:["National Highways","District Roads","Border Roads","State Highways"], correct:3, exp:[
+"Incorrect — National Highways primarily provide inter-state connectivity, not state capital-to-district-HQ links.",
+"Incorrect — District Roads connect district headquarters to smaller towns/villages, not primarily to the state capital.",
+"Incorrect — Border Roads are built and maintained by the BRO in border/high-altitude areas.",
+"Correct — State Highways, built and maintained by State PWDs, primarily connect the State Capital with various district headquarters and link to the National Highway network."
+]},
+{id:50, set:2, tag:"Delhi Police Constable, 29 Dec 2025, Shift-3", q:"The 'Karakoram Highway' is a strategically significant road that mainly connects Pakistan with which neighboring country through the mountainous region?", options:["Iran","Afghanistan","Kazakhstan","China"], correct:3, exp:[
+"Incorrect — The Karakoram Highway does not connect Pakistan with Iran.",
+"Incorrect — The Karakoram Highway does not connect Pakistan with Afghanistan.",
+"Incorrect — The Karakoram Highway does not connect Pakistan with Kazakhstan.",
+"Correct — The Karakoram Highway (KKH), through the Khunjerab Pass, connects Pakistan's Gilgit-Baltistan region to China's Xinjiang region, forming a key artery of the China-Pakistan Economic Corridor (CPEC)."
+]},
+
+// ---------------- SET 3 ----------------
+{id:51, set:3, tag:"Delhi Police Constable, 30 Dec 2025, Shift-2", q:"The 'East-West Corridor' of the North-South and East-West Corridor project connects which two cities?", options:["Mumbai to Kolkata","Jammu to Kanyakumari","Surat to Paradip","Porbandar (Gujarat) to Silchar (Assam)"], correct:3, exp:[
+"Incorrect — Mumbai to Kolkata is not the East-West Corridor's route.",
+"Incorrect — Jammu to Kanyakumari is closer to the North-South Corridor's route (Srinagar to Kanyakumari).",
+"Incorrect — Surat to Paradip is not the East-West Corridor's route.",
+"Correct — The East-West Corridor, a ~3,300 km NHDP expressway, links Porbandar in western Gujarat to Silchar in eastern Assam, improving freight connectivity across India's width."
+]},
+{id:52, set:3, tag:"Delhi Police Constable, 30 Dec 2025, Shift-3", q:"Which of the following road types connects rural areas and villages to towns?", options:["Border Roads","State Highways","National Highways","Other Roads"], correct:3, exp:[
+"Incorrect — Border Roads are built by the BRO for border/high-altitude strategic areas.",
+"Incorrect — State Highways connect the state capital to district headquarters, not villages to towns.",
+"Incorrect — National Highways provide inter-state and major-city connectivity.",
+"Correct — 'Other Roads' (Major/Other District Roads and Rural/Village roads), often built under PMGSY, connect isolated rural villages to nearby district towns and markets."
+]},
+{id:53, set:3, tag:"Delhi Police Constable, 02 Jan 2026, Shift-1", q:"Which two cities are connected by the 'North-South Corridor'?", options:["Srinagar to Kanyakumari","Leh to Mumbai","Delhi to Chennai","Jammu to Kochi"], correct:0, exp:[
+"Correct — The North-South Corridor, part of the NHDP, is a ~4,000 km highway network connecting Srinagar (J&K) in the North to Kanyakumari (Tamil Nadu) in the South.",
+"Incorrect — Leh to Mumbai is not the North-South Corridor's route.",
+"Incorrect — Delhi to Chennai is not the North-South Corridor's route.",
+"Incorrect — Jammu to Kochi is not the North-South Corridor's route."
+]},
+{id:54, set:3, tag:"Delhi Police Constable, 24 Dec 2025, Shift-3", q:"What is the primary purpose of the Golden Quadrilateral Super Highways in India?", options:["To enhance connectivity with neighboring countries through highways.","To reduce travel time and distance between major cities in India.","To improve road connectivity between rural areas and urban centers.","To enhance the efficiency of cargo transport across the country."], correct:1, exp:[
+"Incorrect — The Golden Quadrilateral's core purpose is not international connectivity.",
+"Correct — Launched in 2001, the Golden Quadrilateral primarily aims to drastically reduce travel time and distance between India's four top metros: Delhi, Mumbai, Chennai and Kolkata.",
+"Incorrect — Rural-urban connectivity is the objective of schemes like PMGSY, not the Golden Quadrilateral.",
+"Incorrect — Cargo efficiency is an incidental benefit, not the Golden Quadrilateral's core structural objective."
+]},
+{id:55, set:3, tag:"Delhi Police Constable, 26 Dec 2025, Shift-2", q:"Where is the 'Integral Coach Factory' (ICF), which manufactures railway coaches (like for Vande Bharat), located?", options:["Varanasi","Kapurthala","Chennai","Bengaluru"], correct:2, exp:[
+"Incorrect — Varanasi hosts the Diesel Locomotive Works (DLW), not the ICF.",
+"Incorrect — Kapurthala hosts the Rail Coach Factory (RCF), not the ICF.",
+"Correct — The Integral Coach Factory (ICF) is located in Perambur, Chennai (Tamil Nadu), established in 1955 and known for manufacturing coaches including Vande Bharat trainsets.",
+"Incorrect — Bengaluru does not host the ICF."
+]},
+{id:56, set:3, tag:"SSC CGL 09/09/2024 (3rd Shift)", q:"What is the length of the Indian Railways network, according to the Railway Yearbook 2019-20?", options:["67,956 km","1,604 km","63,950 km","2,402 km"], correct:0, exp:[
+"Correct — 67,956 km is the total Indian Railways network length per the Railway Yearbook 2019-20, combining broad gauge (63,950 km), metre gauge (2,402 km) and narrow gauge (1,604 km).",
+"Incorrect — 1,604 km is only the narrow-gauge component, not the total network.",
+"Incorrect — 63,950 km is only the broad-gauge component, not the total network.",
+"Incorrect — 2,402 km is only the metre-gauge component, not the total network."
+]},
+{id:57, set:3, tag:"SSC CGL 10/09/2024 (1st Shift)", q:"According to the Indian Railways (2019-2020), which state has the largest railway track in India?", options:["Punjab","Haryana","Madhya Pradesh","Uttar Pradesh"], correct:3, exp:[
+"Incorrect — Punjab is not among the top states by railway route kilometres.",
+"Incorrect — Haryana is not among the top states by railway route kilometres.",
+"Incorrect — Madhya Pradesh is among the top five, but not the largest.",
+"Correct — Uttar Pradesh has the largest railway track length in India among states, hosting long routes like the Dibrugarh-Kanyakumari Vivek Express corridor."
+]},
+{id:58, set:3, tag:"SSC CGL 10/09/2024 (3rd Shift)", q:"In which of the following states is the development of rail transport less, due to its geographical conditions?", options:["Sikkim","Haryana","Bihar","Uttar Pradesh"], correct:0, exp:[
+"Correct — Sikkim is predominantly mountainous with steep slopes and rugged terrain, which complicates the construction of rail infrastructure.",
+"Incorrect — Haryana's plains terrain does not restrict rail development in the same way.",
+"Incorrect — Bihar's plains terrain does not restrict rail development like Sikkim's mountains.",
+"Incorrect — Uttar Pradesh in fact has extensive rail track length, not restricted development."
+]},
+{id:59, set:3, tag:"SSC CGL 17/09/2024 (3rd Shift)", q:"Through which routes is the majority of India's international trade carried out?", options:["Railway and air","Sea and air","Only Railway","Sea and railway"], correct:1, exp:[
+"Incorrect — Railway is not a major channel for India's international trade.",
+"Correct — With a coastline of about 7,516.6 km, sea routes carry about 95% of India's trade by volume and 70% by value; air handles the rest of value-heavy/urgent trade, per the Ministry of Shipping.",
+"Incorrect — Railway alone does not carry the majority of India's international trade.",
+"Incorrect — Railway is not a primary channel for international trade; sea and air are."
+]},
+{id:60, set:3, tag:"SSC CGL 18/09/2024 (1st Shift)", q:"Which position does India have in terms of road networks in the world?", options:["First","Second","Fourth","Third"], correct:1, exp:[
+"Incorrect — The USA has the largest road network, not India.",
+"Correct — India has the world's second largest road network after the USA, exceeding 63,71,847 km including National Highways, Expressways, State Highways and other roads (MoRTH FY 2021-22).",
+"Incorrect — India ranks second, not fourth.",
+"Incorrect — India ranks second, not third."
+]},
+{id:61, set:3, tag:"SSC CGL 19/09/2024 (1st Shift)", q:"As of Financial year 2019, which of the following states has the highest road density in India?", options:["Haryana","Tamil Nadu","Kerala","Punjab"], correct:2, exp:[
+"Incorrect — Haryana does not have the highest road density among states.",
+"Incorrect — Tamil Nadu has high road density but not the highest among states.",
+"Correct — As of FY2019, Kerala had the highest road density among states, at 6.7 thousand km of roads per thousand sq km.",
+"Incorrect — Punjab does not have the highest state road density; Chandigarh (a UT) has the overall highest."
+]},
+{id:62, set:3, tag:"SSC CGL 24/09/2024 (1st Shift)", q:"By which National Waterways (NW) of India, are the delta channels of Mahanadi and Brahmani rivers and East Coast Canal connected?", options:["NW 1","NW 3","NW 2","NW 5"], correct:3, exp:[
+"Incorrect — NW-1 is the Ganga-Bhagirathi-Hooghly system, unrelated to Mahanadi-Brahmani.",
+"Incorrect — NW-3 is the West Coast Canal in Kerala, unrelated to Mahanadi-Brahmani.",
+"Incorrect — NW-2 is the Brahmaputra River in Assam, unrelated to Mahanadi-Brahmani.",
+"Correct — NW-5 connects the delta channels of the Mahanadi and Brahmani rivers along with the East Coast Canal, stretching 623 km across Odisha and West Bengal."
+]},
+{id:63, set:3, tag:"SSC CGL 24/09/2024 (2nd Shift)", q:"About what percentage of passenger traffic is carried by roads in India?", options:["77%","87%","57%","67%"], correct:1, exp:[
+"Incorrect — 77% understates the road sector's share of passenger traffic.",
+"Correct — As per MoRTH, roads account for about 87% of India's passenger traffic, while railways account for about 12%.",
+"Incorrect — 57% is well below the actual road passenger-traffic share.",
+"Incorrect — 67% is below the actual road passenger-traffic share of 87%."
+]},
+{id:64, set:3, tag:"SSC CGL 25/09/2024 (1st Shift)", q:"Which of the following is an example of an eastern coast port?", options:["Mumbai Port","Chennai Port","Mormugao Port","New Mangalore Port"], correct:1, exp:[
+"Incorrect — Mumbai Port is on the western coast.",
+"Correct — Chennai Port, on the Bay of Bengal, is an eastern coast port that started commercial operations in 1881; other eastern ports include Tuticorin, Ennore, Haldia, Kolkata, Paradip and Visakhapatnam.",
+"Incorrect — Mormugao Port (Goa) is on the western coast.",
+"Incorrect — New Mangalore Port (Karnataka) is on the western coast."
+]},
+{id:65, set:3, tag:"SSC CGL 26/09/2024 (2nd Shift)", q:"Which of the following ports was developed as a Satellite port to relieve the pressure at the Mumbai port?", options:["New Mangalore Port","Marmagao Port","Deendayal Port Authority","Jawaharlal Nehru Port"], correct:3, exp:[
+"Incorrect — New Mangalore Port was not built to relieve Mumbai Port.",
+"Incorrect — Marmagao Port was not built to relieve Mumbai Port.",
+"Incorrect — Deendayal Port Authority (Kandla) was not built as Mumbai's satellite port.",
+"Correct — Jawaharlal Nehru Port (Nhava Sheva), established in 1989, is India's second-largest container port and was developed as a satellite port to decongest the older Mumbai Port."
+]},
+{id:66, set:3, tag:"SSC CHSL 04/07/2024 (1st shift)", q:"In which year was the Konkan Railway constructed?", options:["1998","1978","1988","2008"], correct:0, exp:[
+"Correct — Indian Railways founded the Konkan Railway (work begun 1990) and it was completed/constructed by 1998, crossing 146 river streams, nearly 2000 bridges and 91 tunnels across Maharashtra, Goa and Karnataka.",
+"Incorrect — 1978 predates the Konkan Railway's establishment.",
+"Incorrect — 1988 predates the Konkan Railway's completion.",
+"Incorrect — 2008 is well after the Konkan Railway was already completed."
+]},
+{id:67, set:3, tag:"SSC CHSL 04/07/2024 (2nd shift)", q:"The Atal Tunnel has been built by Border Road Organisation at an altitude of 3000 metres. Which places are connected by this tunnel?", options:["Manali to Shimla","Shimla to Srinagar","Shimla to Ladakh","Manali to Lahaul-Spiti"], correct:3, exp:[
+"Incorrect — Manali to Shimla is not connected by the Atal Tunnel.",
+"Incorrect — Shimla to Srinagar is not connected by the Atal Tunnel.",
+"Incorrect — Shimla to Ladakh is not connected by the Atal Tunnel.",
+"Correct — The Atal Tunnel (Rohtang Tunnel), built under the Rohtang Pass in Himachal Pradesh on the Leh-Manali Highway, connects Manali to the Lahaul-Spiti region, cutting the Solang-Sissu distance by about 46 km."
+]},
+{id:68, set:3, tag:"SSC CHSL 04/07/2024 (3rd shift)", q:"Match the following ports with their related states correctly — Ports: 1. Mormugao port, 2. Paradip Port, 3. Haldia Port, 4. Tuticorin Port; States: a. West Bengal, b. Odisha, c. Tamil Nadu, d. Goa.", options:["1-d, 2-b, 3-a, 4-c","1-a, 2-b, 3-d, 4-c","1-b, 2-d, 3-a, 4-c","1-b, 2-d, 3-c, 4-a"], correct:0, exp:[
+"Correct — Mormugao is in Goa (d), Paradip is in Odisha (b), Haldia is in West Bengal (a), and Tuticorin is in Tamil Nadu (c).",
+"Incorrect — This pairing incorrectly places Mormugao in West Bengal.",
+"Incorrect — This pairing incorrectly swaps Mormugao and Paradip's states.",
+"Incorrect — This pairing incorrectly swaps several port-state matches."
+]},
+{id:69, set:3, tag:"SSC CHSL 05/07/2024 (3rd shift)", q:"When was air transport nationalised in India?", options:["1950","1952","1951","1953"], correct:3, exp:[
+"Incorrect — Air transport nationalisation did not occur in 1950.",
+"Incorrect — Air transport nationalisation did not occur in 1952.",
+"Incorrect — Air transport nationalisation did not occur in 1951.",
+"Correct — The Air Corporations Act of 1953 nationalised Indian airlines, forming Indian Airlines (domestic) and Air India International (international)."
+]},
+{id:70, set:3, tag:"SSC CHSL 08/07/2024 (3rd shift)", q:"Match the railway zones in column A with their headquarters in column B — Zones: 1. Central, 2. Northern, 3. Eastern, 4. Southern; Headquarters: a. New Delhi, b. Mumbai CST, c. Chennai, d. Kolkata.", options:["1-b, 2-d, 3-a, 4-c","1-a, 2-b, 3-d, 4-c","1-b, 2-a, 3-d, 4-c","1-b, 2-a, 3-c, 4-d"], correct:2, exp:[
+"Incorrect — This pairing incorrectly swaps Northern and Eastern zone headquarters.",
+"Incorrect — This pairing incorrectly places Central zone's HQ as New Delhi instead of Mumbai CST.",
+"Correct — Central Railway HQ is Mumbai CST (b), Northern Railway HQ is New Delhi (a), Eastern Railway HQ is Kolkata (d), and Southern Railway HQ is Chennai (c).",
+"Incorrect — This pairing incorrectly swaps Eastern and Southern zone headquarters."
+]},
+{id:71, set:3, tag:"SSC CHSL 11/07/2024 (1st shift)", q:"The Howrah bridge was officially opened in the year _______.", options:["1935","1930","1948","1943"], correct:3, exp:[
+"Incorrect — 1935 predates the Howrah Bridge's official opening.",
+"Incorrect — 1930 predates the Howrah Bridge's official opening.",
+"Incorrect — 1948 is after the Howrah Bridge was already opened.",
+"Correct — The Howrah Bridge (New Howrah Bridge), a balanced steel bridge over the Hooghly River, was officially opened in 1943 and later renamed Rabindra Setu in 1965."
+]},
+{id:72, set:3, tag:"SSC CPO 27/06/2024 (1st shift)", q:"What is the total length of the Golden Quadrilateral, built by the National Highways Authority of India (NHAI)?", options:["5978 km","4658 km","5790 km","5846 km"], correct:3, exp:[
+"Incorrect — 5978 km is not the Golden Quadrilateral's official length.",
+"Incorrect — 4658 km is not the Golden Quadrilateral's official length.",
+"Incorrect — 5790 km is not the Golden Quadrilateral's official length.",
+"Correct — The Golden Quadrilateral spans 5,846 km, connecting Delhi, Kolkata, Chennai and Mumbai via NH-2, NH-8, NH-4 and NH-5, built by NHAI (established 1988)."
+]},
+{id:73, set:3, tag:"SSC CPO 29/06/2024 (1st shift)", q:"Pipelines as a means of transport are looked after by the _________ of the Government of India.", options:["Ministry of Petroleum and Natural Gas","Ministry of Home Affairs","Ministry of Railways","Ministry of Road Transport and Highways"], correct:0, exp:[
+"Correct — Pipelines are looked after by the Ministry of Petroleum and Natural Gas; major pipelines include the Hazira-Bijaypur-Jagdishpur gas pipeline and the Naharkatia-Nunmati-Barauni crude oil pipeline (India's first).",
+"Incorrect — Pipelines are not under the Ministry of Home Affairs.",
+"Incorrect — Pipelines are not under the Ministry of Railways.",
+"Incorrect — Pipelines are not under the Ministry of Road Transport and Highways."
+]},
+{id:74, set:3, tag:"SSC CPO 29/06/2024 (2nd shift)", q:"As of 2022, which of the following is the longest national waterway in India?", options:["Allahabad-Haldia stretch","Sadiya-Dhubri stretch","Godavari-Krishna stretch","Kottapuram-Kollam stretch"], correct:0, exp:[
+"Correct — The Allahabad-Haldia stretch (1,620 km), part of NW-1, is the longest national waterway in India, divided into the Haldia-Farakka, Farakka-Patna and Patna-Allahabad sections.",
+"Incorrect — The Sadiya-Dhubri stretch (NW-2, 891 km) is shorter than the Allahabad-Haldia stretch.",
+"Incorrect — The Godavari-Krishna stretch (NW-4, 1078 km) is shorter than the Allahabad-Haldia stretch.",
+"Incorrect — The Kottapuram-Kollam stretch (NW-3, 205 km) is much shorter than the Allahabad-Haldia stretch."
+]},
+{id:75, set:3, tag:"SSC CPO 29/06/2024 (2nd shift)", q:"How many major ports are there in India for maritime transportation?", options:["21","15","18","13"], correct:3, exp:[
+"Incorrect — India does not have 21 major ports.",
+"Incorrect — India does not have 15 major ports.",
+"Incorrect — India does not have 18 major ports.",
+"Correct — India has 13 major ports for maritime transportation, including Chennai, Ennore, Kolkata, Deendayal, Kochi, Port Blair, New Mangalore, Mormugao, Mumbai, Paradip and Tuticorin."
+]},
+
+// ---------------- SET 4 ----------------
+{id:76, set:4, tag:"Graduate Level 20/06/2024 (Shift-3)", q:"The historical Sher Shah Suri Marg is called the National Highway no. _________ between Delhi and Amritsar.", options:["9","3","1","7"], correct:2, exp:[
+"Incorrect — NH-9 is not the Sher Shah Suri Marg segment between Delhi and Amritsar.",
+"Incorrect — NH-3 is not the Sher Shah Suri Marg segment between Delhi and Amritsar.",
+"Correct — Sher Shah Suri's Shahi Road, later the Grand Trunk Road, is now divided into NH-1 (Delhi to Amritsar) and NH-2 (Delhi to Kolkata); the Delhi-Amritsar segment is NH-1.",
+"Incorrect — NH-7 is not the Sher Shah Suri Marg segment between Delhi and Amritsar."
+]},
+{id:77, set:4, tag:"SSC Stenographer 13/10/2023 (Afternoon)", q:"In which of the following years was the air transport in India launched?", options:["1948","1932","1954","1911"], correct:3, exp:[
+"Incorrect — Air transport in India was launched well before 1948.",
+"Incorrect — Air transport in India was launched before 1932.",
+"Incorrect — Air transport in India was launched before 1954.",
+"Correct — Air transport in India was launched in 1911 between Allahabad and Naini (10 km), with the first airmail flight piloted by Henri Pequet."
+]},
+{id:78, set:4, tag:"SSC CPO 03/10/2023 (Afternoon)", q:"In India, which of the following modes of transportation reduces trans-shipment losses and delays in supply of petroleum and gas?", options:["Waterways","Railways","Pipeline","Roadways"], correct:2, exp:[
+"Incorrect — Waterways do not offer the dedicated, continuous-flow advantage of pipelines for petroleum/gas.",
+"Incorrect — Railways involve handling and trans-shipment, unlike pipelines.",
+"Correct — Pipelines offer dedicated infrastructure, minimised handling, continuous flow and cost-effectiveness, reducing trans-shipment losses and delays for petroleum and gas.",
+"Incorrect — Roadways involve more handling and delay compared to pipelines."
+]},
+{id:79, set:4, tag:"SSC MTS 05/09/2023 (1st Shift)", q:"Which of the following is NOT a part of the six communication mail channels in India?", options:["Metro channel","Monthly channel","Rajdhani channel","Business channel"], correct:1, exp:[
+"Incorrect — Metro is one of the six official mail channels.",
+"Correct — 'Monthly channel' is not one of the six mail channels; the actual six are Rajdhani, Metro, Green, Business, Periodical and Bulk.",
+"Incorrect — Rajdhani is one of the six official mail channels.",
+"Incorrect — Business is one of the six official mail channels."
+]},
+{id:80, set:4, tag:"SSC CHSL 03/08/2023 (2nd shift)", q:"Which of the following is NOT a characteristic of National Highways in India?", options:["Meant for inter-state transport","Connect state capitals and major cities","Construction of border roads in high altitude areas","Maintained by the Central Government"], correct:2, exp:[
+"Incorrect — Inter-state transport is indeed a characteristic of National Highways.",
+"Incorrect — Connecting state capitals and major cities is indeed a characteristic of National Highways.",
+"Correct — Constructing border roads in high-altitude areas is the function of the Border Roads Organisation (BRO), not a defining characteristic of National Highways.",
+"Incorrect — Central Government maintenance (via NHAI) is indeed a characteristic of National Highways."
+]},
+{id:81, set:4, tag:"SSC CHSL 10/08/2023 (1st shift)", q:"Which project aims to develop state roads along coastal border areas, including connectivity of non-major ports?", options:["Golden Quadrilateral","Setubharatam Pariyojana","District Headquarters Connectivity Scheme","Bharatmala"], correct:3, exp:[
+"Incorrect — The Golden Quadrilateral links four metro cities, not coastal border state roads.",
+"Incorrect — Setu Bharatam aims to make National Highways free of railway level crossings.",
+"Incorrect — The District Headquarters Connectivity Scheme has a different, more localised focus.",
+"Correct — Bharatmala is the centrally funded project that develops state roads along coastal/border areas, including connectivity to non-major ports, along with tunnels, bridges and corridors."
+]},
+{id:82, set:4, tag:"SSC CHSL 10/08/2023 (3rd shift)", q:"Which two cities of India are connected by the Grand Trunk Road?", options:["Amritsar-Kolkata","Karachi-Kolkata","Mumbai-Kolkata","Amritsar-Peshawar"], correct:0, exp:[
+"Correct — The Grand Trunk Road (built by Sher Shah Suri), one of the oldest road routes, currently runs from Amritsar to Kolkata (about 2400 km), linking Central Asia to the subcontinent.",
+"Incorrect — Karachi-Kolkata is not the modern Grand Trunk Road's Indian route.",
+"Incorrect — Mumbai-Kolkata is not the Grand Trunk Road's route.",
+"Incorrect — Amritsar-Peshawar describes the road's historical extent beyond India, not its current India-based route."
+]},
+{id:83, set:4, tag:"SSC CGL 14/07/2023 (3rd shift)", q:"Which waterway provides connectivity with mainland India through the India-Bangladesh Protocol route?", options:["NW-10","NW-15","NW-2","NW-83"], correct:2, exp:[
+"Incorrect — NW-10 (Amba River, Maharashtra) is unrelated to the India-Bangladesh Protocol route.",
+"Incorrect — NW-15 is not the waterway linked to the India-Bangladesh Protocol route.",
+"Correct — NW-2 (891 km, between Sadiya and Dhubri on the Brahmaputra) provides connectivity with mainland India through the India-Bangladesh Protocol route; Pandu port (Assam) is the largest river port in Assam.",
+"Incorrect — NW-83 (Rajpuri Creek, Maharashtra) is unrelated to the India-Bangladesh Protocol route."
+]},
+{id:84, set:4, tag:"SSC CGL 18/07/2023 (1st shift)", q:"Asansol, Howrah, Malda and Sealdah division come under which railway zone of India?", options:["West Central Railway","Northern Railway","Central Railway","Eastern Railway"], correct:3, exp:[
+"Incorrect — West Central Railway does not include these divisions.",
+"Incorrect — Northern Railway does not include these divisions.",
+"Incorrect — Central Railway does not include these divisions.",
+"Correct — Eastern Railway, formed in 1952 with HQ at Kolkata, includes the Howrah, Asansol, Malda and Sealdah divisions."
+]},
+{id:85, set:4, tag:"SSC CGL 19/07/2023 (4th shift)", q:"Which autonomous body was operationalised under the Ministry of Surface Transport in 1995?", options:["Border Roads Organization (BRO)","Centre for Railway Information System (CRIS)","Inland Waterways Authority of India (IWAI)","National Highways Authority of India (NHAI)"], correct:3, exp:[
+"Incorrect — BRO was formed in 1960, not operationalised in 1995 under the Ministry of Surface Transport.",
+"Incorrect — CRIS was founded in July 1986, not 1995.",
+"Incorrect — IWAI was founded in October 1986, not operationalised in 1995.",
+"Correct — NHAI, established under the NHAI Act 1988, was operationalised in 1995 under the Ministry of Surface Transport, headquartered in New Delhi."
+]},
+{id:86, set:4, tag:"SSC CGL 25/07/2023 (3rd shift)", q:"Which of the following is the only rack railway in India that was declared a UNESCO World Heritage Site in 2005?", options:["Nilgiri Mountain Railway","Kangra Valley Railway","Matheran Hill Railway","Kalka-Shimla Railway"], correct:0, exp:[
+"Correct — The Nilgiri Mountain Railway, India's only rack railway, was declared a UNESCO World Heritage Site in 2005, joining the Darjeeling Himalayan Railway (1999) and Kalka-Shimla Railway (2008) as India's mountain railways.",
+"Incorrect — Kangra Valley Railway is not a UNESCO-listed rack railway.",
+"Incorrect — Matheran Hill Railway is a narrow-gauge line but not the UNESCO-declared rack railway of 2005.",
+"Incorrect — Kalka-Shimla Railway was declared a UNESCO site in 2008, not 2005, and is not a rack railway."
+]},
+{id:87, set:4, tag:"Higher Secondary 27/06/2023 (Shift-3)", q:"Select the natural port of India from the following.", options:["Mumbai Port","Chennai Port","Deendayal Port","Kolkata Port"], correct:0, exp:[
+"Correct — Mumbai Port is India's largest natural port.",
+"Incorrect — Chennai Port is a man-made, all-weather artificial harbour, not a natural port.",
+"Incorrect — Deendayal (Kandla) Port is the largest port of India by cargo volume, but it is not classified as a natural port in this context.",
+"Incorrect — Kolkata Port is India's oldest operating port, built by the East India Company, but not cited here as the natural port."
+]},
+{id:88, set:4, tag:"Matric Level 28/06/2023 (Shift-1)", q:"Which of the following National Waterways is located in Tamil Nadu?", options:["National Waterway-97","National Waterway-93","National Waterway-98","National Waterway-99"], correct:3, exp:[
+"Incorrect — NW-97 (Sundarbans Waterways) is in West Bengal, not Tamil Nadu.",
+"Incorrect — NW-93 (Simsang River) is in Meghalaya, not Tamil Nadu.",
+"Incorrect — NW-98 (Sutlej River) is in Punjab and Himachal Pradesh, not Tamil Nadu.",
+"Correct — National Waterway-99, among the 111 waterways declared under the National Waterways Act 2016, is located in Tamil Nadu."
+]},
+{id:89, set:4, tag:"SSC MTS 09/05/2023 (Afternoon)", q:"In India, roads are classified in the _____ classes according to their capacity.", options:["seven","four","three","six"], correct:3, exp:[
+"Incorrect — Indian road classification does not use seven classes.",
+"Incorrect — Indian road classification does not use four classes.",
+"Incorrect — Indian road classification does not use three classes.",
+"Correct — Roads in India are classified into six classes: Expressways, National Highways, State Highways, District Roads, Rural Roads, and Border/Project Roads."
+]},
+{id:90, set:4, tag:"SSC MTS 15/05/2023 (Evening)", q:"_______ is the deepest landlocked and well-protected port.", options:["Kandla","Mumbai","Visakhapatnam","Paradip"], correct:2, exp:[
+"Incorrect — Kandla is a major tidal port in Gujarat, not the deepest landlocked port.",
+"Incorrect — Mumbai is India's largest natural port but not described as the deepest landlocked one.",
+"Correct — Visakhapatnam, a natural harbour on the Andhra Pradesh coast, is described as India's deepest landlocked and well-protected port, handling iron ore, manganese ore and crude oil.",
+"Incorrect — Paradip is an open-sea port in Odisha, not landlocked."
+]},
+{id:91, set:4, tag:"SSC MTS 17/05/2023 (Afternoon)", q:"The Vadhavan Port is located in _____.", options:["Kerala","Tamil Nadu","West Bengal","Maharashtra"], correct:3, exp:[
+"Incorrect — Vadhavan Port is not in Kerala.",
+"Incorrect — Vadhavan Port is not in Tamil Nadu.",
+"Incorrect — Vadhavan Port is not in West Bengal.",
+"Correct — The Vadhavan Port is located in Maharashtra and will be India's 13th major port."
+]},
+{id:92, set:4, tag:"SSC CHSL 16/03/2023 (2nd Shift)", q:"Which among the following is India's first corporatised port?", options:["Kochi","Kandla","Mangalore","Ennore"], correct:3, exp:[
+"Incorrect — Kochi is not India's first corporatised port.",
+"Incorrect — Kandla is not India's first corporatised port.",
+"Incorrect — Mangalore is not India's first corporatised port.",
+"Correct — Ennore (Kamarajar Port), on the Coromandel Coast, Tamil Nadu, is India's first corporatised port and its first transshipment/container terminal to operate in an SEZ."
+]},
+{id:93, set:4, tag:"SSC CGL 02/12/2022 (3rd Shift)", q:"In Trans-Siberian railway system, Vladivostok lies on ________ coast.", options:["Atlantic","Antarctic","Arctic","Pacific"], correct:3, exp:[
+"Incorrect — Vladivostok is not on the Atlantic coast.",
+"Incorrect — Vladivostok is not on the Antarctic coast.",
+"Incorrect — Vladivostok is not on the Arctic coast.",
+"Correct — The Trans-Siberian Railway, the world's longest railway, connects St. Petersburg to Vladivostok on Russia's Pacific coast."
+]},
+{id:94, set:4, tag:"SSC CPO 09/11/2022 (Morning)", q:"Through which of the following states does the National Waterway-96 pass?", options:["Assam","Uttar Pradesh","Odisha","Madhya Pradesh"], correct:2, exp:[
+"Incorrect — NW-96 does not pass through Assam.",
+"Incorrect — NW-96 does not pass through Uttar Pradesh.",
+"Correct — National Waterway-96 passes through Jharkhand, Odisha and West Bengal.",
+"Incorrect — NW-96 does not pass through Madhya Pradesh."
+]},
+{id:95, set:4, tag:"SSC CHSL 26/05/2022 (Morning)", q:"On the basis of the track width of Indian Railways, what type of gauge is Matheran Hill Railways?", options:["Narrow gauge","Medium gauge","Broad gauge","Standard gauge"], correct:0, exp:[
+"Correct — Matheran Hill Railway uses Narrow Gauge (2 ft 6 in / 762 mm), one of the four main Indian railway gauge types.",
+"Incorrect — 'Medium gauge' is not a recognised Indian Railways gauge category.",
+"Incorrect — Broad Gauge (1676 mm) is India's most common gauge, not Matheran's.",
+"Incorrect — Standard Gauge (1435 mm) is used by systems like the Delhi Metro, not Matheran Hill Railway."
+]},
+{id:96, set:4, tag:"SSC MTS 22/10/2021 (Morning)", q:"The ancient port, Sopara is located in which of the following states?", options:["Maharashtra","Kerala","Odisha","Tamil Nadu"], correct:0, exp:[
+"Correct — The ancient port Sopara (capital of ancient Aparanta) was the largest township on India's west coast in Maharashtra, trading with Mesopotamia, Egypt, Arabia and Eastern Africa.",
+"Incorrect — Sopara is not located in Kerala.",
+"Incorrect — Sopara is not located in Odisha.",
+"Incorrect — Sopara is not located in Tamil Nadu."
+]},
+{id:97, set:4, tag:"SSC CHSL 11/8/2021 (Afternoon)", q:"National Highway No. 7 connects:", options:["Fazilka to Mana","Kashmir to Kanyakumari","Varanasi to Kanyakumari","Kanpur to Silchar"], correct:0, exp:[
+"Correct — National Highway No. 7 connects Fazilka (Punjab) via Rishikesh-Badrinath to Mana (Uttarakhand).",
+"Incorrect — Kashmir to Kanyakumari is not NH-7's route.",
+"Incorrect — Varanasi to Kanyakumari is not NH-7's route.",
+"Incorrect — Kanpur to Silchar is not NH-7's route."
+]},
+{id:98, set:4, tag:"SSC CPO 25/11/2020 (Morning)", q:"Which of the following ancient ports was situated on the Malabar Coast?", options:["Barygaza","Muziris","Tamralipti","Palur"], correct:1, exp:[
+"Incorrect — Barygaza (modern Bharuch) was on the west coast in Gujarat, not the Malabar Coast.",
+"Correct — Muziris Port, on the Malabar Coast, became popular when Babylonians, Assyrians and Egyptians came in search of spices around 3000 BC.",
+"Incorrect — Tamralipti was an ancient port on the eastern coast (Bengal), not the Malabar Coast.",
+"Incorrect — Palur was an ancient eastern-coast port, not on the Malabar Coast."
+]},
+{id:99, set:4, tag:"SSC CHSL 17/03/2020 (Evening)", q:"What is the approximate length of the navigable inland waterways of India?", options:["14,500 km","15,600 km","16,400 km","12,800 km"], correct:0, exp:[
+"Correct — India has approximately 14,500 km of navigable inland waterways; 111 waterways (5 existing, 106 new) were declared National Waterways under the National Waterways Act, 2016.",
+"Incorrect — 15,600 km overstates India's navigable inland waterway length.",
+"Incorrect — 16,400 km overstates India's navigable inland waterway length.",
+"Incorrect — 12,800 km understates India's navigable inland waterway length."
+]},
+{id:100, set:4, tag:"SSC CGL 06/03/2020 (Evening)", q:"What was National Highway 66 (NH 66) previously known as?", options:["NH2","NH8","NH5","NH 17"], correct:3, exp:[
+"Incorrect — NH66 was not previously known as NH2.",
+"Incorrect — NH66 was not previously known as NH8.",
+"Incorrect — NH66 was not previously known as NH5.",
+"Correct — NH 66 was previously known as NH 17, connecting Panvel (Maharashtra) to Kanyakumari (Tamil Nadu)."
+]}
+];
+
+const SET_INFO = {
+  1: {name: "Set 1", title: "Ports, Corridors & Strategic Trade Routes", count: 25},
+  2: {name: "Set 2", title: "Roads, Waterways & Port Geography", count: 25},
+  3: {name: "Set 3", title: "National Corridors, Railways & Port Facts", count: 25},
+  4: {name: "Set 4", title: "Highways, Waterways & Railway History", count: 25}
+};
+
+</script>
+
+<script>
+(function(){
+  "use strict";
+  const LOGO_SRC = "data:image/jpeg;base64,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";
+  document.getElementById('brandLogo').src = LOGO_SRC;
+  document.getElementById('regLogo').src = LOGO_SRC;
+
+  const OPT_LETTERS = ['A','B','C','D'];
+  const LS_NAME = 'gq14_username';
+  const LS_SET_PREFIX = 'gq14tb_set_';
+  const SET_DURATION_SEC = 15 * 60; // fixed 15 minutes per set of 25 questions
+
+  let currentUser = localStorage.getItem(LS_NAME) || '';
+  let activeSetId = null;
+  let qList = [];
+  let curIdx = 0;
+  let answers = {};
+  let marked = {};
+  let visited = {};
+  let submitted = false;
+  let reviewIdx = 0;
+  let reviewFilter = 'all';
+  let timerInterval = null;
+  let startTime = null;
+  let durationSec = 0;
+
+  function questionsForSet(setId){ return QUESTIONS.filter(q => q.set === setId); }
+  function getSetState(setId){
+    const raw = localStorage.getItem(LS_SET_PREFIX + setId);
+    return raw ? JSON.parse(raw) : null;
+  }
+  function saveSetState(setId){
+    const state = { answers, marked, submitted, startTime, timestamp: Date.now() };
+    localStorage.setItem(LS_SET_PREFIX + setId, JSON.stringify(state));
+  }
+  function show(id){
+    ['screen-register','screen-sets','screen-instructions','screen-quiz','screen-result'].forEach(s=>{
+      document.getElementById(s).classList.toggle('hidden', s !== id);
+    });
+  }
+  function refreshUserChip(){
+    document.getElementById('userChipName').textContent = currentUser;
+  }
+  function initials(name){
+    const p = name.trim().split(/\s+/);
+    return ((p[0]||'')[0]||'?').toUpperCase();
+  }
+
+  // ---------- Screen 1: Registration ----------
+  const nameInput = document.getElementById('nameInput');
+  const nameErr = document.getElementById('nameErr');
+  document.getElementById('startBtn').addEventListener('click', ()=>{
+    const val = nameInput.value.trim();
+    if(!val){ nameErr.textContent = 'Please enter your name to continue.'; return; }
+    if(val.length < 2){ nameErr.textContent = 'Name looks too short — please check.'; return; }
+    nameErr.textContent = '';
+    currentUser = val;
+    localStorage.setItem(LS_NAME, val);
+    refreshUserChip();
+    renderSetGrid();
+    show('screen-sets');
+  });
+  nameInput.addEventListener('keydown', e=>{ if(e.key==='Enter') document.getElementById('startBtn').click(); });
+
+  // ---------- Screen 2: Set selection ----------
+  function fmtMMSS(totalSec){
+    totalSec = Math.max(0, Math.round(totalSec));
+    const m = Math.floor(totalSec/60), s = totalSec%60;
+    return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+
+  function renderSetGrid(){
+    const grid = document.getElementById('setGrid');
+    grid.innerHTML = '';
+    Object.keys(SET_INFO).forEach(key=>{
+      const setId = parseInt(key);
+      const info = SET_INFO[setId];
+      const state = getSetState(setId);
+      const card = document.createElement('div');
+      card.className = 'card set-card';
+      let ribbon = '';
+      let metaRow = `<span class="pill">${info.count} Questions</span><span class="pill">${fmtMMSS(SET_DURATION_SEC)} min</span>`;
+      let actionsHtml = `<button class="btn btn-primary btn-sm" style="width:auto;margin-top:0;" data-action="start" data-set="${setId}">Start Test →</button>`;
+
+      if(state && state.submitted){
+        const total = info.count;
+        let correct = 0;
+        questionsForSet(setId).forEach(q=>{ if(state.answers[q.id] === q.correct) correct++; });
+        ribbon = `<div class="ribbon">DONE</div>`;
+        metaRow += `<span class="pill score">Score: ${correct}/${total}</span>`;
+        actionsHtml = `
+          <button class="btn btn-purple-outline btn-sm" data-action="review" data-set="${setId}">View Analysis</button>
+          <button class="btn btn-grey btn-sm" data-action="reattempt" data-set="${setId}">Reattempt</button>`;
+      } else if(state && !state.submitted && Object.keys(state.answers||{}).length>0){
+        const attempted = Object.keys(state.answers||{}).length;
+        metaRow += `<span class="pill">In progress (${attempted}/${info.count})</span>`;
+        actionsHtml = `<button class="btn btn-primary btn-sm" style="width:auto;margin-top:0;" data-action="resume" data-set="${setId}">Resume Test →</button>`;
+      }
+
+      card.innerHTML = `
+        ${ribbon}
+        <div class="set-num">${setId}</div>
+        <h3>${info.name}: ${info.title}</h3>
+        <div class="set-desc">Full-length mock test format with palette navigation &amp; detailed analysis.</div>
+        <div class="meta-row">${metaRow}</div>
+        <div class="actions">${actionsHtml}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    grid.querySelectorAll('button[data-action]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const setId = parseInt(btn.getAttribute('data-set'));
+        const action = btn.getAttribute('data-action');
+        if(action === 'start'){ openInstructions(setId, true); }
+        else if(action === 'resume'){ openAttempt(setId, false); }
+        else if(action === 'reattempt'){ openInstructions(setId, true); }
+        else if(action === 'review'){ openReview(setId); }
+      });
+    });
+  }
+
+  document.getElementById('resultBackBtn').addEventListener('click', ()=>{ stopTimer(); renderSetGrid(); show('screen-sets'); });
+
+  // ---------- Screen 2b: Instructions ----------
+  let pendingSetId = null;
+  function openInstructions(setId, forceReset){
+    pendingSetId = setId;
+    const info = SET_INFO[setId];
+    document.getElementById('instrTitle').textContent = `${info.name}: ${info.title}`;
+    document.getElementById('instrCount').textContent = info.count;
+    document.getElementById('instrDuration').textContent = fmtMMSS(SET_DURATION_SEC);
+    document.getElementById('agreeCheck').checked = false;
+    document.getElementById('instrStartBtn').disabled = true;
+    document.getElementById('instrStartBtn').onclick = ()=>{ openAttempt(setId, forceReset); };
+    show('screen-instructions');
+  }
+  document.getElementById('agreeCheck').addEventListener('change', (e)=>{
+    document.getElementById('instrStartBtn').disabled = !e.target.checked;
+  });
+  document.getElementById('instrBackBtn').addEventListener('click', ()=>{ renderSetGrid(); show('screen-sets'); });
+
+  // ---------- Screen 3: Attempt ----------
+  function openAttempt(setId, forceReset){
+    activeSetId = setId;
+    qList = questionsForSet(setId);
+    durationSec = SET_DURATION_SEC;
+    const state = getSetState(setId);
+    if(forceReset || !state){
+      answers = {}; marked = {}; visited = {}; submitted = false; startTime = Date.now();
+    } else {
+      answers = state.answers || {};
+      marked = state.marked || {};
+      visited = {};
+      qList.forEach(q=>{ if(answers[q.id]!==undefined) visited[q.id]=true; });
+      submitted = false;
+      startTime = state.startTime || Date.now();
+    }
+    curIdx = 0;
+    saveSetState(setId);
+
+    const info = SET_INFO[setId];
+    document.getElementById('quizTestName').innerHTML = `${info.name}: ${info.title}<span>Geography Quiz 14</span>`;
+    document.getElementById('sideUname').textContent = currentUser;
+    document.getElementById('sideAvatar').textContent = initials(currentUser);
+    document.getElementById('sideSetName').textContent = `${info.name} · ${info.count} Qs`;
+
+    show('screen-quiz');
+    renderAttemptQuestion();
+    renderPalette();
+    startTimer();
+  }
+
+  function startTimer(){
+    stopTimer();
+    updateTimerDisplay();
+    timerInterval = setInterval(()=>{
+      const elapsed = (Date.now() - startTime)/1000;
+      const remaining = durationSec - elapsed;
+      if(remaining <= 0){
+        updateTimerDisplay(0);
+        stopTimer();
+        doSubmit(true);
+        return;
+      }
+      updateTimerDisplay(remaining);
+    }, 1000);
+  }
+  function stopTimer(){ if(timerInterval){ clearInterval(timerInterval); timerInterval=null; } }
+  function updateTimerDisplay(remainingOverride){
+    const elapsed = (Date.now() - startTime)/1000;
+    const remaining = remainingOverride!==undefined ? remainingOverride : Math.max(0, durationSec - elapsed);
+    document.getElementById('timerText').textContent = fmtMMSS(remaining);
+    document.getElementById('timerPill').classList.toggle('low', remaining <= 120);
+  }
+
+  function renderAttemptQuestion(){
+    const q = qList[curIdx];
+    visited[q.id] = true;
+    document.getElementById('qNumLabel').innerHTML = `Question ${curIdx+1} of ${qList.length} <span class="marks-tag">+1 / 0</span>`;
+    document.getElementById('qExamTag').textContent = q.tag;
+    document.getElementById('qText').textContent = q.q;
+
+    const optList = document.getElementById('optList');
+    optList.innerHTML = '';
+    q.options.forEach((opt, i)=>{
+      const div = document.createElement('div');
+      div.className = 'opt' + (answers[q.id]===i ? ' selected' : '');
+      div.innerHTML = `<div class="optlabel">${OPT_LETTERS[i]}</div><div class="opttext">${opt}</div>`;
+      div.addEventListener('click', ()=>{
+        answers[q.id] = i;
+        saveSetState(activeSetId);
+        renderAttemptQuestion();
+        renderPalette();
+      });
+      optList.appendChild(div);
+    });
+
+    document.getElementById('markBtn').textContent = marked[q.id] ? 'Unmark Review' : 'Mark for Review & Next';
+    document.getElementById('prevBtn').disabled = curIdx === 0;
+    const isLast = curIdx === qList.length - 1;
+    document.getElementById('saveNextBtn').textContent = isLast ? 'Save' : 'Save & Next →';
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', ()=>{ if(curIdx>0){ curIdx--; renderAttemptQuestion(); renderPalette(); }});
+  document.getElementById('saveNextBtn').addEventListener('click', ()=>{
+    if(curIdx<qList.length-1){ curIdx++; renderAttemptQuestion(); renderPalette(); }
+    else { openSubmitModal(); }
+  });
+  document.getElementById('clearBtn').addEventListener('click', ()=>{
+    const q = qList[curIdx];
+    delete answers[q.id];
+    saveSetState(activeSetId);
+    renderAttemptQuestion();
+    renderPalette();
+  });
+  document.getElementById('markBtn').addEventListener('click', ()=>{
+    const q = qList[curIdx];
+    marked[q.id] = !marked[q.id];
+    saveSetState(activeSetId);
+    if(curIdx<qList.length-1){ curIdx++; }
+    renderAttemptQuestion();
+    renderPalette();
+  });
+
+  function renderPalette(){
+    const grid = document.getElementById('paletteGrid');
+    grid.innerHTML = '';
+    qList.forEach((q, i)=>{
+      const btn = document.createElement('div');
+      const hasAns = answers[q.id]!==undefined;
+      const isMarked = !!marked[q.id];
+      let cls = 'pnum notvisited';
+      if(visited[q.id] && !hasAns) cls = 'pnum notanswered';
+      if(hasAns) cls = 'pnum answered';
+      if(isMarked) cls = 'pnum marked' + (hasAns ? ' hasans' : '');
+      if(i === curIdx) cls += ' cur';
+      btn.className = cls;
+      btn.textContent = i+1;
+      btn.addEventListener('click', ()=>{ curIdx = i; renderAttemptQuestion(); renderPalette(); });
+      grid.appendChild(btn);
+    });
+    const answeredCount = Object.keys(answers).length;
+    const markedCount = Object.values(marked).filter(Boolean).length;
+    const notVisitedCount = qList.filter(q=>!visited[q.id]).length;
+    document.getElementById('sideSummary').innerHTML = `
+      <div><span>Answered</span><b>${answeredCount}</b></div>
+      <div><span>Not Answered</span><b>${qList.length - answeredCount - notVisitedCount}</b></div>
+      <div><span>Not Visited</span><b>${notVisitedCount}</b></div>
+      <div><span>Marked for Review</span><b>${markedCount}</b></div>
+    `;
+  }
+
+  // ---------- Submit modal ----------
+  function openSubmitModal(){
+    const answeredCount = Object.keys(answers).length;
+    const markedCount = Object.values(marked).filter(Boolean).length;
+    const notVisitedCount = qList.filter(q=>!visited[q.id]).length;
+    const notAnswered = qList.length - answeredCount - notVisitedCount;
+    document.getElementById('modalAnswered').textContent = answeredCount;
+    document.getElementById('modalNotAnswered').textContent = notAnswered;
+    document.getElementById('modalMarked').textContent = markedCount;
+    document.getElementById('modalNotVisited').textContent = notVisitedCount;
+    document.getElementById('submitModal').classList.remove('hidden');
+  }
+  document.getElementById('submitTopBtn').addEventListener('click', openSubmitModal);
+  document.getElementById('finalSubmitBtn').addEventListener('click', openSubmitModal);
+  document.getElementById('modalCancelBtn').addEventListener('click', ()=>{ document.getElementById('submitModal').classList.add('hidden'); });
+  document.getElementById('modalConfirmBtn').addEventListener('click', ()=>{
+    document.getElementById('submitModal').classList.add('hidden');
+    doSubmit(false);
+  });
+
+  function doSubmit(auto){
+    stopTimer();
+    submitted = true;
+    saveSetState(activeSetId);
+    reviewFilter = 'all';
+    openReview(activeSetId);
+    renderSetGrid();
+    if(auto){
+      setTimeout(()=>{ alert('Time is up! Your test has been submitted automatically.'); }, 200);
+    }
+  }
+
+  // ---------- Screen 4: Review ----------
+  function openReview(setId){
+    activeSetId = setId;
+    qList = questionsForSet(setId);
+    const state = getSetState(setId);
+    answers = (state && state.answers) || {};
+    marked = (state && state.marked) || {};
+    reviewIdx = 0;
+    reviewFilter = 'all';
+
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-filter')==='all'));
+
+    let correct=0, wrong=0, skipped=0;
+    qList.forEach(q=>{
+      const a = answers[q.id];
+      if(a===undefined) skipped++;
+      else if(a===q.correct) correct++;
+      else wrong++;
+    });
+    const total = qList.length;
+    document.getElementById('resultSetName').textContent = `${SET_INFO[setId].name}: ${SET_INFO[setId].title}`;
+    document.getElementById('resultScoreNum').textContent = `${correct} / ${total}`;
+    document.getElementById('statCorrect').textContent = correct;
+    document.getElementById('statWrong').textContent = wrong;
+    document.getElementById('statSkipped').textContent = skipped;
+    document.getElementById('statAccuracy').textContent = Math.round((correct/total)*100) + '%';
+
+    renderReviewPalette();
+    renderReviewQuestion();
+    show('screen-result');
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      reviewFilter = btn.getAttribute('data-filter');
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active', b===btn));
+      const idxList = filteredIndices();
+      if(idxList.length>0){ reviewIdx = idxList[0]; renderReviewQuestion(); }
+      renderReviewPalette();
+    });
+  });
+  function filteredIndices(){
+    return qList.map((q,i)=>i).filter(i=>{
+      const q = qList[i]; const a = answers[q.id];
+      if(reviewFilter==='all') return true;
+      if(reviewFilter==='correct') return a===q.correct;
+      if(reviewFilter==='wrong') return a!==undefined && a!==q.correct;
+      if(reviewFilter==='skipped') return a===undefined;
+      return true;
+    });
+  }
+
+  function renderReviewPalette(){
+    const grid = document.getElementById('rPaletteGrid');
+    grid.innerHTML = '';
+    const visible = new Set(filteredIndices());
+    qList.forEach((q,i)=>{
+      const a = answers[q.id];
+      let cls = 'pnum rev-skip-p';
+      if(a!==undefined) cls = (a===q.correct) ? 'pnum rev-correct-p' : 'pnum rev-wrong-p';
+      if(i===reviewIdx) cls += ' cur';
+      const btn = document.createElement('div');
+      btn.className = cls;
+      btn.style.opacity = visible.has(i) ? '1' : '.28';
+      btn.textContent = i+1;
+      btn.addEventListener('click', ()=>{ reviewIdx = i; renderReviewQuestion(); renderReviewPalette(); });
+      grid.appendChild(btn);
+    });
+    let correct=0, wrong=0, skipped=0;
+    qList.forEach(q=>{
+      const a = answers[q.id];
+      if(a===undefined) skipped++;
+      else if(a===q.correct) correct++;
+      else wrong++;
+    });
+    document.getElementById('rSideSummary').innerHTML = `
+      <div><span>Correct</span><b style="color:var(--tb-green)">${correct}</b></div>
+      <div><span>Wrong</span><b style="color:var(--tb-red)">${wrong}</b></div>
+      <div><span>Skipped</span><b>${skipped}</b></div>
+    `;
+  }
+
+  function renderReviewQuestion(){
+    const q = qList[reviewIdx];
+    const a = answers[q.id];
+    document.getElementById('rNumLabel').textContent = `Question ${reviewIdx+1} of ${qList.length}`;
+    document.getElementById('rExamTag').textContent = q.tag;
+    document.getElementById('rQText').textContent = q.q;
+
+    const banner = document.getElementById('rVerdictBanner');
+    banner.classList.remove('verdict-correct','verdict-wrong','verdict-skipped');
+    if(a===undefined){
+      banner.className = 'verdict-banner verdict-skipped';
+      banner.textContent = '⚠ Not Attempted — Correct answer highlighted below.';
+    } else if(a===q.correct){
+      banner.className = 'verdict-banner verdict-correct';
+      banner.textContent = '✓ Correct Answer!';
+    } else {
+      banner.className = 'verdict-banner verdict-wrong';
+      banner.textContent = '✗ Incorrect — your answer is shown below along with the correct one.';
+    }
+
+    const optList = document.getElementById('rOptList');
+    optList.innerHTML = '';
+    q.options.forEach((opt,i)=>{
+      const div = document.createElement('div');
+      let cls = 'opt rev-disabled';
+      if(i===q.correct) cls += ' rev-correct';
+      else if(i===a) cls += ' rev-wrong';
+      div.className = cls;
+      div.innerHTML = `<div class="optlabel">${OPT_LETTERS[i]}${i===a && a!==q.correct ? ' (Your choice)' : ''}${i===q.correct ? ' ✓' : ''}</div><div class="opttext">${opt}</div>`;
+      optList.appendChild(div);
+
+      const expDiv = document.createElement('div');
+      expDiv.className = 'explain-box ' + (i===q.correct ? 'exp-correct' : 'exp-wrong');
+      expDiv.textContent = q.exp[i];
+      optList.appendChild(expDiv);
+    });
+
+    const idxList = filteredIndices();
+    const pos = idxList.indexOf(reviewIdx);
+    document.getElementById('rPrevBtn').disabled = pos<=0;
+    document.getElementById('rNextBtn').disabled = pos===-1 || pos>=idxList.length-1;
+  }
+
+  document.getElementById('rPrevBtn').addEventListener('click', ()=>{
+    const idxList = filteredIndices(); const pos = idxList.indexOf(reviewIdx);
+    if(pos>0){ reviewIdx = idxList[pos-1]; renderReviewQuestion(); renderReviewPalette(); }
+  });
+  document.getElementById('rNextBtn').addEventListener('click', ()=>{
+    const idxList = filteredIndices(); const pos = idxList.indexOf(reviewIdx);
+    if(pos!==-1 && pos<idxList.length-1){ reviewIdx = idxList[pos+1]; renderReviewQuestion(); renderReviewPalette(); }
+  });
+
+  // ---------- Init ----------
+  if(currentUser){
+    refreshUserChip();
+    nameInput.value = currentUser;
+    renderSetGrid();
+    show('screen-sets');
+  } else {
+    show('screen-register');
+  }
+})();
+</script>
+</body>
+</html>
